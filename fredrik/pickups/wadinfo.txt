@@ -1,0 +1,3 @@
+[sprites]
+SHELA0	7	10
+SHOTA0	28	12
