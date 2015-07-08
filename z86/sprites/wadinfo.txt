@@ -1,0 +1,2 @@
+[sprites]
+LAUNA0	31	16
