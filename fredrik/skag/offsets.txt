@@ -1,0 +1,4 @@
+BFGGA0  -63     -69
+BFGGB0  -63     -69
+BFGFA0  -63     -69
+BFGFB0  -63     -69
