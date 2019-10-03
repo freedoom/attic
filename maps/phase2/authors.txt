@@ -1,0 +1,17 @@
+Here you can see the authors of each wad present in there.
+Each wad start in map01 unless if told otherwise.
+Authors sorted in alphabetical order.
+
+Wad Name - Author - Misc - Commentary(optional).
+
+(---------------------)
+entry001.wad - Airraid		- No	- .
+entry002.wad - Ajapted		- Yes	- Slot Map32.
+entry003.wad - amarande		- Yes	- .
+entry004.wad - Archvile46	- Yes	- Brother of 005.
+entry005.wad - Archvile46	- No	- Pre Fraggle Edit, brother of 004.
+entry006.wad - Blastetfurry	- No	- .
+entry007.wad - Cacodemon leader	- Yes	- Slot Map30, brother of 008.
+entry008.wad - Cacodemon leader	- No	- Slot Map30, brother of 007.
+entry009.wad - 		- 	- .
+entry010.wad - 		- 	- .
