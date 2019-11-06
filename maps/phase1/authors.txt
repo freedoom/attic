@@ -1,0 +1,17 @@
+Here you can see the authors of each wad present in there.
+Each wad start in e1m1 unless if told otherwise.
+Authors sorted in alphabetical order.
+
+Wad Name - Author - Misc - Commentary(optional).
+
+(---------------------)
+entry001.wad - Catoptromancy	- No	- .
+entry002.wad - Fraggle		- No	- .
+entry003.wad - 			- Yes	- .
+entry004.wad - 			- Yes	- .
+entry005.wad - 			- No	- .
+entry006.wad - 			- No	- .
+entry007.wad - 			- Yes	- .
+entry008.wad - 			- No	- .
+entry009.wad - 			- 	- .
+entry010.wad - 			- 	- .
