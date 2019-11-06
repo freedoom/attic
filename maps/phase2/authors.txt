@@ -14,4 +14,16 @@ entry006.wad - Blastetfurry	- No	- .
 entry007.wad - Cacodemon leader	- Yes	- Slot Map30, brother of 008.
 entry008.wad - Cacodemon leader	- No	- Slot Map30, brother of 007.
 entry009.wad - Catoptromancy	- Yes	- .
-entry010.wad - 		- 	- .
+entry010.wad - Catoptromancy	- No	- .
+entry011.wad - Catoptromancy	- Yes	- 2 Misc files.
+entry012.wad - Jond		- No	- Brother of 021.
+entry013.wad - Jond		- Yes	- "entry013.wl"
+entry014.wad - Jond		- Yes	- .
+entry015.wad - Macro11_1	- No	- .
+entry016.wad - Metabolist	- No	- .
+entry017.wad - Nrkn		- No	- .
+entry018.wad - Railgunner	- Yes	- .
+entry019.wad - Spaceforce	- No	- .
+entry020.wad - Thatheriam	- No	- .
+entry021.wad - The Green Herring- Yes	- This was used in c1m1 too, brother of 012.
+entry022.wad - Zigmund		- Yes	- .
