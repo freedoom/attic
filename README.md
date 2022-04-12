@@ -4,4 +4,4 @@ Since starting in 2003, Freedoom has changed a lot since its inception and the A
 
 Be aware that, unlike now, Freedoom was not always meant to be a vanilla-only set of IWADs, meaning that to play some of the WADs here, an advanced Doom source port, such as [QZDoom](https://doomwiki.org/wiki/QZDoom), [PrBoom](https://doomwiki.org/wiki/PrBoom), [Pooch](https://doomwiki.org/wiki/Pooch) or any other port that is [Boom-compatible](https://doomwiki.org/wiki/Category:Boom_compatible).
 
-As with most things relating to Freedoom, all of the contents in this git [use the same license](COPYING.adoc) as the main Freedoom project.
+As with most things relating to Freedoom, all of the contents in this git [use the same license](https://freedoom.github.io/about.html) as the main Freedoom project.
