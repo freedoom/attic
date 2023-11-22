@@ -1,0 +1,10 @@
+Here you can see the authors of each wad present in there.
+Each wad start in e1m1 unless if told otherwise.
+Authors sorted in alphabetical order.
+
+Wad Name - Author - Misc - Commentary(optional).
+
+(---------------------)
+entry001.wad - Catoptromancy	- No	- .
+entry002.wad - Fraggle		- No	- .
+entry003.wad - Shadowrunner	- No	- .
