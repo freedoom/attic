@@ -1,0 +1,1 @@
+based off a palette by ugljesa11ugi in the freedoom discord. this palette is supposed to be doom compatible, while maintaining as few colors from the og doom palette as possible, as well as adding hueshifting based on brightness.
