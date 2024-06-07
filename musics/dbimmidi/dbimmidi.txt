@@ -1,0 +1,101 @@
+===========================================================================
+Advanced engine needed  : dbmid_e4.wad requires Crispy Doom, Eternity, ZDoom,
+                          or a MAPINFO-compatible port. The other WADs are
+                          vanilla compatible.
+Primary purpose         : Single play
+===========================================================================
+Title                   : Double Impact MIDI Pack
+Filename                : dbimmidi.zip
+Release date            : 2023-05-11
+Author                  : continuum.mid, with contributions by Matzu, R0rque,
+                          Korp, and ZeMystic; DeHackEd by Pringao friki 
+                          chalado
+Email Address           : [redacted]
+Other Files By Author   : Ultimate MIDI Pack and contributions to numerous
+                          MIDI packs and WAD soundtracks.
+
+Description             : Few Ultimate Doom WADs have stood the test of time
+                          as well as the 2011 E1 replacement "Double Impact"
+                          by RottKing and Ralphis, a collection of sprawling
+                          techbases with agile action. In addition to being
+                          released as a standalone PWAD, Double Impact became
+                          the fourth episode of the IWAD replacement
+                          Freedoom: Phase 1 in 2013, and in 2020 became an
+                          official add-on for the Unity port of Doom,
+                          introducing it to a wider audience than even the
+                          best Doom WADs usually receive.
+                          
+                          One small flaw in this otherwise great WAD is its
+                          incomplete soundtrack. The original PWAD contained
+                          two original tracks and two remixes of Bobby
+                          Prince's music. In Freedoom, due to the limitations
+                          of the engine, Double Impact simply reuses music
+                          from the first three episodes, in the same pattern
+                          that Ultimate Doom's fourth episode did, meaning
+                          that the music selections fit only a little better
+                          than random chance. This project aims to fix that
+                          flaw by providing a new soundtrack for the WAD that
+                          can be used with both the PWAD and Freedoom: Phase
+                          1, and which, in the spirit of Freedoom, is
+                          absolutely free to reuse and remix. 
+
+Special thanks          : RottKing for Double Impact.
+                          Ralphis for Double Impact, and also for providing
+                          some early feedback on the idea for the project.
+                          Everyone who's contributed to Freedoom and the
+                          wider ecosystem of open-source software and games.
+                          Palitoman and Bobby were set to contribute to this
+                          pack, but never finished their contributions due to
+                          my (continuum.mid) lack of due diligence in keeping
+                          the project alive. Thanks for contributing and I'm
+                          sorry for taking so long.
+===========================================================================
+* What is included *
+
+New levels              : None
+Sounds                  : No
+Music                   : Yes
+Graphics                : No
+Dehacked/BEX Patch      : No
+Demos                   : No
+Other                   : {E,U,Z,}MAPINFO
+Other files required    : Freedoom: Phase 1 or Double Impact
+
+
+* Play Information *
+
+Game                    : Doom
+Single Player           : N/A
+Cooperative 2-4 Player  : N/A
+Deathmatch 2-4 Player   : N/A
+Other game styles       : N/A
+Difficulty Settings     : Not implemented
+
+
+* Construction *
+
+Base                    : New from scratch
+Build Time              : 2 years
+Editor(s) used          : SLADE and MuseScore, Sekaiju, etc
+May Not Run With        : dbmid_e4.wad may not run on ports that don't
+                          support its MAPINFO or lump locations.
+Tested With             : Chocolate Doom (dbmide4v.wad only), Crispy Doom,
+                          Eternity, GZDoom
+
+
+* Copyright / Permissions *
+
+Authors MAY use the contents of this file as a base for
+modification or reuse.  Permissions have been obtained from original
+authors for any of their resources modified or included in this file.
+
+To the extent possible under law, the authors have dedicated all copyright
+and related and neighboring rights to this file to the public domain 
+worldwide. You should have received a copy of the CC0 Public Domain 
+Dedication along with this file. If not, see 
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+
+* Where to get the file that this text file describes *
+
+The Usual: ftp://archives.gamers.org/pub/idgames/ and mirrors
+

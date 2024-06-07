@@ -1,0 +1,26 @@
+[E4M1]
+music = d_e4m1
+
+[E4M2]
+music = d_e4m2
+
+[E4M3]
+music = d_e4m3
+
+[E4M4]
+music = d_e4m4
+
+[E4M5]
+music = d_e4m5
+
+[E4M6]
+music = d_e4m6
+
+[E4M7]
+music = d_e4m7
+
+[E4M8]
+music = d_e4m8
+
+[E4M9]
+music = d_e4m9
