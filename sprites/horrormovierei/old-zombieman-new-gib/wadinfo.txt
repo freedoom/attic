@@ -1,0 +1,9 @@
+POSSM0      21   61
+POSSN0      24   56
+POSSO0      26   55
+POSSP0      30   47
+POSSQ0      30   40
+POSSR0      31   30
+POSSS0      29   23
+POSST0      30   17
+POSSU0      31   16

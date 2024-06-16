@@ -1,0 +1,95 @@
+map E4M1 lookup HUSTR_E4M1
+levelnum 31
+titlepatch WILV30
+next E4M2
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M1
+
+map E4M2 lookup HUSTR_E4M2
+levelnum 32
+titlepatch WILV31
+next E4M3
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M2
+
+map E4M3 lookup HUSTR_E4M3
+levelnum 33
+titlepatch WILV32
+next E4M4
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M3
+
+map E4M4 lookup HUSTR_E4M4
+levelnum 34
+titlepatch WILV33
+next E4M5
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M4
+
+map E4M5 lookup HUSTR_E4M5
+levelnum 35
+titlepatch WILV34
+next E4M6
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M5
+
+map E4M6 lookup HUSTR_E4M6
+levelnum 36
+titlepatch WILV35
+next E4M7
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+cyberdemonspecial
+specialaction_opendoor
+sucktime 1
+music D_E4M6
+
+map E4M7 lookup HUSTR_E4M7
+levelnum 37
+titlepatch WILV36
+next E4M8
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M7
+
+map E4M8 lookup HUSTR_E4M8
+levelnum 38
+titlepatch WILV37
+next EndGame4
+secretnext E4M9
+sky1 SKY4 0
+cluster 4
+nointermission
+nosoundclipping
+spidermastermindspecial
+specialaction_lowerfloor
+sucktime 1
+music D_E4M8
+
+map E4M9 lookup HUSTR_E4M9
+levelnum 39
+titlepatch WILV38
+next E4M3
+secretnext E4M3
+sky1 SKY4 0
+cluster 4
+sucktime 1
+music D_E4M9
