@@ -1,0 +1,10 @@
+Here you can see the authors of each wad present in there.
+Each wad start in map01 unless if told otherwise.
+Authors sorted in alphabetical order.
+
+Wad Name - Author - Misc - Commentary(optional).
+
+(---------------------)
+entry001.wad - Hellbent		- No	- .
+entry002.wad - Xindage		- No	- .
+entry003.wad - Xindage		- No	- .
