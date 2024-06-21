@@ -1,0 +1,21 @@
+Wall textures for FreeDoom
+
+Original Author: Wesley Johnson
+john <obfuscate> son 24 12 @ usgo <dot> net
+
+
+Release Revision 9.   Sept 16, 2015
+
+These are generated from scratch, using GIMP, for FreeDoom.
+Features:
+- City themed walls
+- Office buildings with glass.
+- Solar panels, and biologically active wall panels, for the modern city
+  with distributed power harvesting.
+
+
+These wall textures were used to generate my version of RSKY2, but
+they are very distant in that view.
+
+
+  

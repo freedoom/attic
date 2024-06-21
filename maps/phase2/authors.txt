@@ -1,0 +1,32 @@
+Here you can see the authors of each wad present in there.
+Each wad start in map01 unless if told otherwise.
+Authors sorted in alphabetical order.
+
+Wad Name - Author - Misc - Commentary(optional).
+
+(---------------------)
+entry001.wad - Airraid		- No	- .
+entry002.wad - Ajapted		- Yes	- Slot Map32.
+entry003.wad - amarande		- Yes	- .
+entry004.wad - Archvile46	- Yes	- Brother of 005.
+entry005.wad - Archvile46	- No	- Pre Fraggle Edit, brother of 004.
+entry006.wad - Blastetfurry	- No	- .
+entry007.wad - Cacodemon leader	- Yes	- Slot Map30, brother of 008.
+entry008.wad - Cacodemon leader	- No	- Slot Map30, brother of 007.
+entry009.wad - Catoptromancy	- Yes	- .
+entry010.wad - Catoptromancy	- No	- .
+entry011.wad - Catoptromancy	- Yes	- 2 Misc files.
+entry012.wad - Jond		- No	- Brother of 021.
+entry013.wad - Jond		- Yes	- "entry013.wl"
+entry014.wad - Jond		- Yes	- .
+entry015.wad - Macro11_1	- No	- .
+entry016.wad - Metabolist	- No	- .
+entry017.wad - Nrkn		- No	- .
+entry018.wad - Railgunner	- Yes	- .
+entry019.wad - Spaceforce	- No	- .
+entry020.wad - Thatheriam	- No	- .
+entry021.wad - The Green Herring- Yes	- This was used in c1m1 too, brother of 012.
+entry022.wad - Zigmund		- Yes	- .
+entry023.wad - Tarin            - Yes   - Slot Map07.
+entry024.wad - Amarande         - No    - Slot Map27.
+entry025.wad - Hawkwind         - No    - Slot Map30.

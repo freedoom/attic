@@ -1,0 +1,95 @@
+MAP E4M1
+{
+       levelname = "Maintenance Area"
+	   levelpic = "WILV30"
+       skytexture = "SKY4"
+	   next = "E4M2"
+	   music = "D_E4M1"
+}
+
+MAP E4M2
+{
+       levelname = "Research Complex"
+	   levelpic = "WILV31"
+       skytexture = "SKY4"
+	   next = "E4M3"
+	   nextsecret = "E4M9"
+	   music = "D_E4M2"
+}
+
+MAP E4M3
+{
+       levelname = "Central Computing"
+	   levelpic = "WILV32"
+       skytexture = "SKY4"
+	   next = "E4M4"
+	   music = "D_E4M3"
+}
+
+MAP E4M4
+{
+       levelname = "Hydroponic Facility"
+	   levelpic = "WILV33"
+       skytexture = "SKY4"
+	   next = "E4M5"
+	   music = "D_E4M4"
+}
+
+MAP E4M5
+{
+       levelname = "Engineering Station"
+	   levelpic = "WILV34"
+       skytexture = "SKY4"
+	   next = "E4M6"
+	   music = "D_E4M5"
+}
+
+MAP E4M6
+{
+       levelname = "Command Center"
+	   levelpic = "WILV35"
+       skytexture = "SKY4"
+	   next = "E4M7"
+	   music = "D_E4M6"
+}
+
+MAP E4M7
+{
+       levelname = "Waste Treatment"
+	   levelpic = "WILV36"
+       skytexture = "SKY4"
+	   next = "E4M8"
+	   music = "D_E4M7"
+}
+
+MAP E4M8
+{
+       levelname = "Launch Bay"
+	   levelpic = "WILV37"
+       skytexture = "SKY4"
+	   music = "D_E4M8"
+	   interbackdrop = "MFLR8_3"
+	   intertext = "After yet another army of monsters
+ you manage to find a functioning ship.
+ Looks like freedom is yours.
+ You practically melt into the soft
+ pilot's seat, a luxurious welcome
+ as you leave this wretched rock.
+ The ship rumbles as she wakes up;
+ you think of Earth as she lifts off.
+ 
+ Hopefully AGM won't find you there:
+ they've got the outbreak to deal with,
+ so that'll give you some time.
+ 
+ Destination: Earth!"
+}
+
+MAP E4M9
+{
+       levelname = "Operations"
+	   levelpic = "WILV38"
+       skytexture = "SKY4"
+	   next = "E4M3"
+	   music = "D_E4M9"
+}
