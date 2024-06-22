@@ -1,10 +1,50 @@
 Here you can see the authors of each wad present in there.
 Each wad start in map01 unless if told otherwise.
-Authors sorted in alphabetical order.
+There's no specific sorting aside the entry numbers.
+
+# Important Note: As version 0.6 I could not really figure who
+# was the real author because some conflicting information in
+# both credits and slot directories, leading to both these names.
+# So as reference R/H mean both Rellik and Hellbent.
 
 Wad Name - Author - Misc - Commentary(optional).
 
 (---------------------)
-entry001.wad - Hellbent		- No	- .
-entry002.wad - Xindage		- No	- .
-entry003.wad - Xindage		- No	- .
+entry001.wad - R/H				- No	- v0.6.
+entry002.wad - R/H				- No	- v0.6.
+entry003.wad - R/H				- No	- v0.6.
+entry004.wad - R/H				- No	- v0.6.
+entry005.wad - R/H				- No	- v0.6.
+entry006.wad - R/H				- No	- v0.6.
+entry007.wad - R/H				- No	- v0.6.
+entry008.wad - R/H				- No	- v0.6.
+entry009.wad - R/H				- No	- v0.6.
+entry010.wad - R/H				- No	- v0.6.
+entry011.wad - R/H				- No	- v0.6.
+entry012.wad - R/H				- No	- v0.6.
+entry013.wad - R/H				- No	- v0.6.
+entry014.wad - R/H				- No	- v0.6.
+entry015.wad - R/H				- No	- v0.6.
+entry016.wad - Catoptromancy	- No	- v0.8. Vanilla fix 001
+entry017.wad - Catoptromancy	- No	- v0.8. Vanilla fix 002
+entry018.wad - Catoptromancy	- No	- v0.8. Vanilla fix 003
+entry019.wad - Catoptromancy	- No	- v0.8. Vanilla fix 004
+entry020.wad - Catoptromancy	- No	- v0.8. Vanilla fix 005
+entry021.wad - Catoptromancy	- No	- v0.8. Vanilla fix 006
+entry022.wad - Catoptromancy	- No	- v0.8. Vanilla fix 007
+entry023.wad - Catoptromancy	- No	- v0.8. Vanilla fix 008
+entry024.wad - Catoptromancy	- No	- v0.8. Vanilla fix 009
+entry025.wad - Catoptromancy	- No	- v0.8. Vanilla fix 010
+entry026.wad - Catoptromancy	- No	- v0.8. Vanilla fix 011
+entry027.wad - Catoptromancy	- No	- v0.8. Vanilla fix 012
+entry028.wad - Catoptromancy	- No	- v0.8. Vanilla fix 013
+entry029.wad - Catoptromancy	- No	- v0.8. Vanilla fix 014
+entry030.wad - Catoptromancy	- No	- v0.8. Vanilla fix 015
+entry031.wad - Catoptromancy	- No	- v0.8.
+entry032.wad - Catoptromancy	- No	- v0.8.
+entry033.wad - Catoptromancy	- No	- v0.8.
+entry034.wad - Catoptromancy	- No	- v0.8.
+entry035.wad - Catoptromancy	- No	- v0.8.
+entry036.wad - Xindage			- No	- v0.8.
+entry037.wad - Nivha/Hex11		- No	- v0.8.
+entry038.wad - Skib				- No	- v0.8.
