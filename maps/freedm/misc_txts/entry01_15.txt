@@ -1,0 +1,2 @@
+Extracted from freedm 0.6.0
+These maps were not changed until 0.8-beta1
