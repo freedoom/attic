@@ -1,0 +1,9 @@
+After years of work, I've finally run out of steam for DE. As such, I've decided to abandon it from further development. I will be graduating within a few months, and will either need to find a job in the BioTech industry or go to graduate school (or, med school if I managed to raise my GPA by 0.1 :/). With all these things that are more important, my interest in DE has finally died. It was a great run while it lasted, and I've learned from the the several iterations I've made of DE. Sadly, the progress on DE was generally unsatisfactory. Given the one-man team I had, I think this is as far as I can practically take it without some really heavy dedication. And feeding off the Doom storyline and theme for my project really didn't allow me to do everything I wanted without making it un-doomy.
+
+That said, all resources from DE will now be open to Creative Commons usage (hopefully with substantial edits). Freedoom, personal projects, etc, may use my resources freely. Note that not everything found within the DE wads are made from scratch, or by me. To be safe, ask me and make sure they are indeed something original.
+
+All monsters that were near completion before I decided to finally dump this project will be finished [eventually] and uploaded. These include the handful of Episode 3 monsters, and some of the Hellforge versions of the Doom 2 monsters (i only need to finish 1 more rotation of the Aracknight, and yet it's been sitting unfinished for months).
+
+I've been working on a new project for the past several months that I feel allows me more creative freedom, and the scope of which isn't as overwhelmingly ambitious as DE was. I'll have screenshots and maybe youtube videos up within a couple of months, hopefully. Thank you all for the support for DE, but I think it's a good time as ever for it to die now. :P
+
+https://forum.zdoom.org/viewtopic.php?f=42&t=13397&p=642078#p642078
