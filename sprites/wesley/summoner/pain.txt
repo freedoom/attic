@@ -1,0 +1,44 @@
+:Name: Pain Elemental design
+:author: Wesley Johnson
+:date: 5/30/2012
+:version: ver 5.5
+::END
+email: john <obfuscate> son 2412 <@> usgo <dot> net
+
+INFO:
+
+Pain Elemental complete Sprite set.
+  Custom designed for FreeDoom, for compatibility with existing FreeDoom sprites.
+  With wadinfo.txt
+
+Contains files:
+    pain.txt		this file
+    /sprites  		directory of all ppm files
+    wadinfo.txt 	deutex wadinfo, for only the pain sprites
+
+- Description:
+  Pain Elemental consisting of green metal mesh, with seven flaming
+  heads inside.
+  The largest head (red) exits to becoming attacking head.
+  Dies with green burning mesh.
+
+
+HISTORY:
+
+Release Revision 5.5   May 30, 2012
+CHANGES Rev 5.5
+Redrew frames h0, i0, j0, which were contaminated.
+Redrew frames g3g7 and g5 because xcf files were png copies.
+Reordered layers in xcf files of frames a2a8 and b2b8, and rebuilt png files.
+Full check in source directories, GIMP xcf file layers, and png files,
+that all flaming heads are from FreeDoom sources.
+Deleted all previous pain elemental ppm and wad files and re-generated them.
+
+Release Revision 5.0b  May 24, 2012
+CHANGES Rev 5.0b
+*** Frames h0,i0,j0 have been replaced by frame k0 to remove contamination..
+
+Release Revision 5.0  Apr 11, 2012
+
+
+
