@@ -30,3 +30,4 @@ entry022.wad - Zigmund		- Yes	- .
 entry023.wad - Tarin            - Yes   - Slot Map07.
 entry024.wad - Amarande         - No    - Slot Map27.
 entry025.wad - Hawkwind         - No    - Slot Map30.
+entry026.wad - Siggi		- Yes	- Slot Map01.

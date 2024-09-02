@@ -1,0 +1,5 @@
+"fun.wad" by Siggi is a wad originally made with Plutonia textures but
+retextured by the author to work with Freedoom and donated to it.
+
+Catoptromancy feels it is appropriate to have the super secret level as
+a huge slaughter map.
