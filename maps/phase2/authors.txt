@@ -33,3 +33,5 @@ entry025.wad - Hawkwind         - No    - Slot Map30.
 entry026.wad - Siggi		- Yes	- Slot Map01 (originally Map32).
 entry027.wad - Wesley		- Yes	- Slot Map13, requires BOOM.
 entry028.wad - Wesley		- Yes	- Slot Map19.
+entry029.wad - Jimmy		- Yes	- jen03.wad. Slot Map03. 
+entry030.wad - Mystic		- Yes	- Slot Map06.
