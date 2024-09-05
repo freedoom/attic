@@ -37,3 +37,4 @@ entry029.wad - Jimmy		- Yes	- jen03.wad. Slot Map03.
 entry030.wad - Mystic		- Yes	- Slot Map06.
 entry031.wad - Zigmund		- Yes	- Slot Map18. Requires limit-removing.
 entry032.wad - Zigmund		- No	- Same as previous but adapted for vanilla by Voros.
+entry033.wad - Wesley		- Yes	- Slot Map09. Requires BOOM.
