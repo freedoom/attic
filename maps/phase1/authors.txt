@@ -8,6 +8,8 @@ Wad Name - Author - Misc - Commentary(optional).
 entry001.wad - Catoptromancy	- No	- .
 entry002.wad - Fraggle		- No	- .
 entry003.wad - Shadowrunner	- No	- .
-entry004.wad - Z0k		- No	- Slot E1M9 (was E1M5 in 0.12.1). Includes fixes from various authors
-entry005.wad - Xindage		- No	- Slot E2M1. Includes fixes from various authors
-entry006.wad - Malinku		- No	- LDTL.wad. Slot E2M2. Includes fixes by Catoptromancy
+entry004.wad - Z0k		- No	- Slot E1M9 (was E1M5 in 0.12.1). Includes fixes from various authors.
+entry005.wad - Xindage		- No	- Slot E2M1. Includes fixes from various authors.
+entry006.wad - Malinku		- No	- LDTL.wad. Slot E2M2. Includes fixes by Catoptromancy.
+entry007.wad - Wereknight	- No	- Slot E2M6.
+entry008.wad - Wereknight	- No	- Slot E2M7.
