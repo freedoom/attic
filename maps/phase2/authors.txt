@@ -42,3 +42,5 @@ entry034.wad - Amarande		- Yes	- Slot Map21. Requires BOOM or limit-removing.
 entry035.wad - Amarande		- No	- Same as previous but adapted for vanilla by Voros.
 entry036.wad - Tarin            - No 	- Slot Map07. Requires BOOM or limit-removing.
 entry037.wad - Torn		- Yes	- Slot Map26.
+entry038.wad - sgtmarkiv	- No	- deadcargoredux.wad. Slot Map01. Requires limit-removing.
+entry039.wad - sgtmarkiv	- No	- sgtmarkivfreedoommAP17.WAD. Slot Map17. Requires limit-removing.
