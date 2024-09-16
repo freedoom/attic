@@ -1,0 +1,56 @@
+Title                   : Church of Slaughter
+Filename                : cursl1.wad
+Release date            : 05/22/2013
+Author                  : Sergeant_Mark_IV
+Email Address           : marcos.mk3@hotmail.com
+Other Files By Author   : Brutal Doom, ArmageDoom, After the Holocaust, Neighborhood From Hell, City Assault, Underground Compound, Administration Center.
+Misc. Author Info       : 
+
+Description             : My first non-zdoom map. A very non-linear hellish map with lots of alternative routes and organic
+architeture.
+
+===========================================================================
+* What is included *
+
+New levels              : 01
+Sounds                  : No
+Music                   : Yes
+Graphics                : Yes
+Dehacked/BEX Patch      : No
+Demos                   : No
+Other                   : No
+
+
+* Play Information *
+
+Game                    : DOOM2
+Map #                   : MAP01
+Single Player           : Designed for
+Cooperative 2-4 Player  : Designed for
+Deathmatch 2-4 Player   : No
+Other game styles       : No
+Difficulty Settings     : Yes
+
+
+* Construction *
+
+Base                    : New from scratch
+Build Time              : Dunno 
+Editor(s) used          : Doom Builder 2, Slade 3, Fireworks 8
+Known Bugs              :
+May Not Run With        : A Toaster
+Tested With             : Zdoom, Zandronum, PrBoom+, Legacy, Chocolate Doom.
+
+
+
+* Copyright / Permissions *
+
+Authors MAY use the contents of this file as a base for
+modification or reuse.  Permissions have been obtained from original 
+authors for any of their resources modified or included in this file.
+
+You MAY distribute this file, provided you include this text file, with
+no modifications.  You may distribute this file in any electronic
+format (BBS, Diskette, CD, etc) as long as you include this file 
+intact.  I have received permission from the original authors of any
+modified or included content in this file to allow further distribution.

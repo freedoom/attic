@@ -44,3 +44,8 @@ entry036.wad - Tarin            - No 	- Slot Map07. Requires limit-removing.
 entry037.wad - Torn		- Yes	- Slot Map26.
 entry038.wad - sgtmarkiv	- No	- deadcargoredux.wad. Slot Map01. Requires limit-removing.
 entry039.wad - sgtmarkiv	- No	- sgtmarkivfreedoommAP17.WAD. Slot Map17. Requires BOOM.
+entry040.wad - sgtmarkiv	- Yes	- cursl1.wad. Slot Map01.
+entry041.wad - Mechadon		- Yes	- mek-dom1.wad. Slot Map01.
+entry042.wad - Mechadon		- Yes	- Slot Map29. Requires BOOM.
+entry043.wad - Mechadon		- No	- Slot Map05. Requires ZDoom.
+entry044.wad - hawkwind		- Yes	- Slot Map17.
