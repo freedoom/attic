@@ -1,0 +1,88 @@
+;Format of textures:
+;TextureName	Width	Height
+;*	PatchName	Xoffset	Yoffset
+S3DUMMY     		128	128
+*	S3DUMMY     	0	0
+BIGBRIK1    		64	128
+*	BIGBRIK1    	0	0
+BIGBRIK2    		64	128
+*	BIGBRIK2    	0	0
+BIGBRIK3    		64	128
+*	BIGBRIK3    	0	0
+ICKWALL1    		64	128
+*	ICKWALL1    	0	0
+ICKWALL2    		64	128
+*	ICKWALL2    	0	0
+ICKWALL3    		64	128
+*	ICKWALL3    	0	0
+ICKWALL4    		64	128
+*	ICKWALL4    	0	0
+ICKWALL5    		64	128
+*	ICKWALL5    	0	0
+ICKWALL6    		64	128
+*	ICKWALL6    	0	0
+ICKWALL7    		64	128
+*	ICKWALL7    	0	0
+ICKDOOR1    		64	72
+*	ICKDOOR1    	0	0
+GRAY1       		64	128
+*	GRAY1       	0	0
+GRAY2       		64	72
+*	GRAY2       	0	0
+GRAY3       		64	128
+*	GRAY3       	0	0
+GRAY4       		64	128
+*	GRAY4       	0	0
+GRAY5       		64	128
+*	GRAY5       	0	0
+GRAY7       		256	128
+*	GRAY7       	0	0
+GRAYBIG     		128	128
+*	GRAYBIG     	0	0
+GRAYTALL    		128	128
+*	GRAYTALL    	0	0
+STARBK1     		64	128
+*	STARBK1     	0	0
+STARBK2     		128	128
+*	STARBK2     	0	0
+STARBK3     		128	128
+*	STARBK3     	0	0
+STARBRW1    		64	128
+*	STARBRW1    	0	0
+STARBLU     		64	128
+*	STARBLU     	0	0
+STARHELL    		64	128
+*	STARHELL    	0	0
+SLADBARN    		64	128
+*	SLADBARN    	0	0
+SLADBROK    		64	128
+*	SLADBROK    	0	0
+SLADBARS    		64	128
+*	SLADBARS    	0	0
+METAL8      		64	128
+*	METAL8      	0	0
+TECHPIP1    		64	128
+*	TECHPIP1    	0	0
+COMPUTE1    		128	128
+*	COMPUTE1    	0	0
+BRGRAF1     		384	128
+*	BRGRAF1     	0	0
+BRMID1      		64	128
+*	BRMID1      	0	0
+BRICK13     		64	128
+*	BRICK13     	0	0
+BRICK14     		128	128
+*	BRICK14     	0	0
+BRICK15     		128	128
+*	BRICK15     	0	0
+BRWINDO2    		64	128
+*	BRWINDO2    	0	0
+BRWINDO3    		64	128
+*	BRWINDO3    	0	0
+BRWINDO4    		64	128
+*	BRWINDO4    	0	0
+BRWINDO5    		64	128
+*	BRWINDO5    	0	0
+BRWINDO6    		64	128
+*	BRWINDO6    	0	0
+;End
