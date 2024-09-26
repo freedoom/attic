@@ -1,0 +1,64 @@
+===========================================================================
+Advanced engine needed  : Boom (may also run in Vanilla)
+Primary purpose         : Single play
+===========================================================================
+Title                   : Dominion of Madess
+Filename                : mek-dom1.wad
+                          mek-dom1.txt
+Release date            : Jun 27 09
+Author                  : Brett "Mechadon" Harrell
+Email Address           : mekaddonn@gmail.com
+Other Files By Author   : Too much to list.
+Misc. Author Info       : I'm too obsessed with aesthetics.
+
+Description             : A 100 minute speedmap that took waaay longer than 100 minutes.
+
+===========================================================================
+* What is included *
+
+New levels              : 1
+Sounds                  : No
+Music                   : Yes
+Graphics                : Yes (1 new sky texture)
+Dehacked/BEX Patch      : No
+Demos                   : No
+Other                   : No
+Other files required    : None
+
+
+* Play Information *
+
+Game                    : Doom 2
+Map #                   : MAP01
+Single Player           : Designed for
+Cooperative 2-4 Player  : Player starts only
+Deathmatch 2-4 Player   : No
+Other game styles       : None
+Difficulty Settings     : Implemented
+
+
+* Construction *
+
+Base                    : New from scratch
+Build Time              : 5 hours including testing
+Editor(s) used          : Doom Builder 2, XWE
+Known Bugs              : None
+May Not Run With...     : Non-Boom compatible engines.  MAY run in Vanilla (untested)
+
+
+* Copyright / Permissions *
+
+Authors MAY use the contents of this file as a base for modification or
+reuse.  Permissions have been obtained from original authors for any of
+their resources modified or included in this file.
+
+You MAY distribute this file, provided you include this text file, with no
+modifications.  You may distribute this file in any electronic format (BBS,
+Diskette, CD, etc) as long as you include this file intact.  I have
+received permission from the original authors of any modified or included
+content in this file to allow further distribution.
+
+* Where to get the file that this text file describes *
+
+The Usual: ftp://archives.3dgamers.com/pub/idgames/ and mirrors
+http://phenomer.mekworx.net
