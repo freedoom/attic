@@ -49,3 +49,4 @@ entry041.wad - Mechadon		- Yes	- mek-dom1.wad. Slot Map01.
 entry042.wad - Mechadon		- Yes	- Slot Map29. Requires BOOM.
 entry043.wad - Mechadon		- No	- Slot Map05. Requires ZDoom.
 entry044.wad - hawkwind		- Yes	- Slot Map17.
+entry045.wad - sgtmarkiv	- No	- Slot Map02. Original credits to fraggle
