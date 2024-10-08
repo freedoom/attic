@@ -1,14 +1,20 @@
 --Unused in 0.14.0--
 
 E1M1: "Revvin' the Ripsaw" by Josephus "J.Astartes" Astartes and Davester2296 (Based loosely on Ralphis' E1M1)
+E1M5: "A bloody Legacy" by Mr795, remix of dave3d25.mid by jute
+E3M8: "The vampire's Choir" by Mr795
+MAP19: "The shotgunner bit me!" by Mr795, remix of "Toll" by Joshua "wastedjamacan" Masek
 MAP20: "The Rivers Run Red" by Josephus "J.Astartes" Astartes
 MAP22: "Beasts of Horizon" by Josephus "J.Astartes" Astartes
 
 --Previously Featured in 0.13.0--
 
 E1M5: "The Raging Sun" by Kevin "Velvetic" Martins & Jonathan "julnen" Martins, modified by Goji
+
 MAP07: "Fun is Infinite at AGM" by continuum.mid
 MAP30: Remix of "Paranoia" by Korp (original by Tyler "Picklehammer" P.)
+
+DM04: "Pit" by Anthony "Ajanddino" Pierce
 
 --Previously Featured in 0.12.1--
 
@@ -74,3 +80,10 @@ DM26: dave3d09.mid by jute
 DM27: "Music for Freedoom 7" by Jeremy "Vandalorian" Emerson
 DM30: dave3d01.mid by jute
 DM32: "Munt Battle" by Mark "TheMisterCat" McGill-Smith
+
+--Previously Featured in 0.8--
+
+E2M8: "Why?" by Joshua "wastedjamacan" Masek
+E3M1: toll.mid by Joshua "wastedjamacan" Masek
+
+MAP31: depress.mid by Joshua "wastedjamacan" Masek

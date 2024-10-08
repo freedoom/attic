@@ -1,0 +1,18 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of data Lumps
+[lumps]
+DEHACKED
+
+# List of Sprites
+[sprites]
+SHOTA0	29	16
+SHTFA0	-126	-73
+SHTFB0	-126	-73
+SHTGA0	-108	-103
+SHTGB0	-97	-73
+SHTGC0	-66	-35
+SHTGD0	-26	-19
+
+# End of extraction

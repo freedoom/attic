@@ -1,0 +1,24 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+BFGGA0	-95	-94
+BFGGB0	-88	-95
+BFGGC0	-95	-88
+BFGGD0	-95	-86
+BFGGE0	-95	-87
+BFGGF0	-95	-83
+BFGGG0	-95	-80
+BFGGH0	-95	-80
+BFGGI0	-95	-80
+BFGGJ0	-95	-80
+BFGGK0	-95	-80
+BFGGL0	-95	-80
+BFGGM0	-88	-76
+BFGGN0	-88	-77
+BFGGO0	-88	-95
+BFGGP0	-95	-94
+BFUGA0	29	24
+
+# End of extraction

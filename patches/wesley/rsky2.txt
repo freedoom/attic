@@ -1,0 +1,12 @@
+rksy2 for FreeDoom
+Wesley D. Johnson
+john <obfuscate> son 24 12 @ usgo <dot> net
+
+
+INFO:
+Created from scratch using GIMP, prboom, GIMP, and ppmquant2..
+
+Version 3: Aug 24, 2015
+
+rsky2p.wad   city with clouds, more buildings, dawn sky
+
