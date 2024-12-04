@@ -1,0 +1,11 @@
+This pwad includes various sprites I have made specifically for freedoom, which includes
+some other stuff that never got ingame and pre-edited changes that got through.
+
+Credits:
+	Cascade			Sprites & reshades
+	
+	Freedoom		Various pickups used as base
+		-Rocket
+		-Cell
+		-Chaingun
+	HorrorMovieRei	Head pole

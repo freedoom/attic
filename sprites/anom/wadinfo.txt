@@ -1,0 +1,12 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+BFGFA0	-91	-76
+BFGFB0	-91	-76
+BFGGA0	-91	-76
+BFGGB0	-91	-76
+BFGGC0	-91	-76
+
+# End of extraction

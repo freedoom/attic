@@ -1,0 +1,13 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+POL2A0	20	51
+POL3A0	15	32
+POL3B0	15	32
+POL4A0	16	38
+POL6A0	15	62
+POL6B0	15	62
+
+# End of extraction

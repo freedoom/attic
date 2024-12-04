@@ -1,0 +1,13 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+SARGI0	20	58
+SARGJ0	23	52
+SARGK0	31	44
+SARGL0	43	42
+SARGM0	42	26
+SARGN0	45	20
+
+# End of extraction

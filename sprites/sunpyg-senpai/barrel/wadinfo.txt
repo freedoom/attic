@@ -1,0 +1,14 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+BAR1A0	11	31
+BAR1B0	11	31
+BEXPA0	11	31
+BEXPB0	12	33
+BEXPC0	16	36
+BEXPD0	28	51
+BEXPE0	42	69
+
+# End of extraction
