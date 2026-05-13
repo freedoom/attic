@@ -1,0 +1,11 @@
+rksy2 for FreeDoom
+Wesley D. Johnson
+john <obfuscate> son 24 12 @ usgo <dot> net
+
+
+INFO:
+Created from scratch using GIMP, prboom, GIMP, and ppmquant2..
+
+Version 3: Aug 11, 2015
+
+rsky2kf.wad   city with clouds, orangish sky

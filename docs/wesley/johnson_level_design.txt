@@ -1,0 +1,3077 @@
+Level Design patterns for Doom level design
+
+Written by: Wesley D. Johnson  7/1/2009
+  Application is for FreeDoom project, using Doom and Boom wad specs.
+  Having only one floor and middle texture is the engine limitation that causes
+  the most problems, and providing known solutions is what this document
+  addresses.
+
+  Legacy, ReMooD, XDoom, ZDoom, in different ways, have expanded sector
+  associations so that many of the things that this document says cannot
+  be done, those engines have a way of doing.  This mostly lies in allowing
+  multiple levels of floors and viewing.  See the editing specifications for
+  those engines to expand on these solutions.
+
+  I expect that for some of the things that I think cannot be done, someone
+  will say they can.  Please make addendums and appendix to this document,
+  not complaints to me.  Remember that this is limited to normal Doom, with
+  Boom extensions, and that in many places I have kept Doom and
+  Boom distinct too.
+
+Sources:
+  Unofficial Doom Spec by Matthew S. Fell
+  BOOM reference v1.3 4/12/98
+  Special FX & WAD Tricks by Mark Glenn
+  DESIGN12.FAQ by Tom Neff 
+  DOOM METRICS by Scott Ampoker
+  TEXTURES by Scott Amspoker
+
+
+ 
+Scale
+  Derived from METRICS doc.
+  1 foot = 16 units horz.,	10 units vert.
+  2 feet = 32 units horz.,	20 units vert.
+  3 feet = 48 units horz.,	30 units vert.
+  4 feet = 64 units horz.,	40 units vert.
+  5.6 feet = 			56 units vert.
+  6.4 feet = 			64 units vert.
+  7.2 feet =			72 units vert.
+  8 feet = 128 units horz.,	80 units vert.
+  16 feet = 256 units horz.,	160 units vert.
+
+  This may be due to the screen size of 200 x 320 pixels which is ratio of
+  10 x 16, but more likely because the pixels were not square.
+  200x320
+  	-> 270mm/200 x 340mm/320
+  	->  12.7 x 10, rectangular pixel,
+		depending upon the monitor and adjustments used
+  480x640
+  	-> 270mm/480 x 340mm/640
+	->  10.5 x 10, almost square pixel,
+		depending upon the monitor and adjustments used
+
+
+Heights of building structures, in Doom units
+  Shelve	25 to 40
+  Step		 6 to  8
+  Table		22 to 24
+  Loading Dock	36 to 40
+  Railing	25 to 26
+  Low fence 4ft	  40
+  High fence 6ft  60
+  Window bottom   28 to 33
+  Window top	  55 to 60
+  Window with glass (48x96)  bottom=28, top=124  (or smaller) 
+  Guard window    bottom= 32, top= 60
+
+
+Sizes
+  Small Office door	(2.5 x 6.5 ft)   40 x 65,  40x64
+			tight fit, too small for monsters
+  Big office door	(3 x 7 ft)   48 x 70,  48x72
+  Small desk	height=24 to 25, width=24  length=48
+  Big desk	height=24 to 25, width=28  length=64
+  File Cab.	height=43 to 45, width=20, depth=33
+  Chair		seat height=15, back height=26, seat=21x21
+  Sofa		seat height=14, back height=24, seat=20x72
+
+Objects on shelves
+  Make sure the center of any object on a shelve is within 16 units of the
+  edge, or else it will be difficult to pick up.
+
+Player
+  Height:	56 units.		(5.6 feet)
+     Player can pass any opening of this size or more headroom.
+     A passageway with a door must be 60 units high or more, unless special
+     tricks are used.
+  Width:	32 units.		(2 feet)
+     Only a lost soul can follow a player down a passageway that is 32 units
+     wide.
+  Step height:	24 units max.		(2.4 feet)
+
+
+Passageway
+  Must be 56 units high or more.
+  Common heights are 64, 72, 120, 128.
+  Can use 80, 88, 96, but may need to make textures lower unpegged.
+  Common widths are 64 and 128, as these widths tile nicely when patterned
+  floors are used.
+
+  The METRICS document has the results of tests of monsters and the
+  passageways that they will enter.
+  Monsters will take a long time entering a passageway that is near their size.
+  The passageway must be at least 1 larger than the monster and
+  preferably 8 larger.
+
+  Monster sizes and usable passages (from METRICS, UDS)
+    ?? are unknown, gives the probable minimum based on other examples
+    Monster		 WxH		minimum passageway	usable passage
+    Player		32x56		34x56			40x60
+    Lost soul		32x56		?? 34x56
+    	already within						40x60
+	to enter (because they jump about so much)		48x60
+    Human monster	40x56		44x56			48x60
+    Imp			40x56		44x56			48x60
+    Revenant		40x56		?? 44x56		48x60
+    Vile		40x56		?? 44x56		48x60
+    Demon		60x56		64x56			72x60
+    Cacodemon		62x56		64x56			72x60
+    Baron		48x64		?? 50x64		56x64
+    Mancubus		48x64		?? 50x64		56x64
+    Cyberdemon		80x110		?? 32x110		88x110
+    Spiderdemon		256x100		?? 258x100		272x120
+    	(no door textures are large enough to pass)
+
+  Suggested sizes
+    W x H
+    34 x 56	(2.125 x 5.6 feet)
+	Ducts and secret passages meant only for the player,
+	tight squeeze around machines.
+	Will pass player, small monsters, lost souls.
+	Minimum size, without doors nor projections.
+
+    48 x 60	(3 x 6 feet)
+	Cramped passageway, sewer, serviceway.
+	The minimum that some building codes allow.
+	Will pass player, human monsters, imps, lost souls.
+	Allows doors, but their sides and tops will be cut off.
+	Use flat textures.
+
+    56 x 64	(3.5 x 6.4 feet)
+	Narrow passageway, basement, shack, cabin hallway.
+	Will pass player, human monsters, imps, lost souls, baron
+	Allows doors, but their sides and tops will be cut off.
+	Use flat textures.
+
+    56 x 72	(3.5 x 7.2 feet)
+	Narrow passageway.
+	Residential hallway.
+	Will pass player, human monsters, imps, lost souls, baron.
+	Allows narrow doors, but their sides will be cut off.
+	Use flat textures.
+	
+    64 x 64	(4 x 6.4 feet)
+	Low industrial passageway.
+	Wide, common doorway.
+	Will pass player, human monsters, imps, lost souls.
+	Few doors, but their tops will be cut off.
+
+    64 x 72	(4 x 7.2 feet)
+	Normal older industrial hallway, before modern building codes.
+	Doorway for industrial hallway.
+	Wide hallway for residential.
+	Will pass player, human monsters, imps, lost souls.
+	Few doors, but their tops will be cut off.
+
+    64 x 80	(4 x 8 feet)
+	Normal industrial and commercial hallway, with normal ceiling height.
+	Full size residential hallway.
+	The minimum that some building codes allow for public places.
+	Will pass player, all monsters except Cyberdemon and Spiderdemon.
+	No door textures, must use an alternative texture.
+
+    64 x 88	(4 x 8.8 feet)
+
+    64 x 96	(4 x 9.6 feet)
+	Common tall hallway, properly proportioned.
+	Older commercial buildings.
+	The minimum that some building codes allow for public places.
+	Will pass player, all monsters except Cyberdemon and Spiderdemon.
+	No door textures, must use an alternative texture.
+
+    64 x 128	(4 x 12.8 feet)
+	Tall passageway
+	Has many doors of this size.
+    
+    128 x 96	(8 x 9.6 feet)
+	Wide industrial.
+	Will pass player, all monsters except Spiderdemon.
+	Has door.
+
+    128 x 112	(8 x 11.2 feet)
+	Industrial.
+	Will pass player, all monsters except Spiderdemon.
+	Has door.
+
+    128 x 128	(8 x 12.8 feet)
+	Large Industrial.
+	Will pass player, all monsters except Spiderdemon.
+	Has many doors.
+
+ 
+
+  When a pattern is used for the ceiling or floor, then to get that pattern
+  to line up with the passageway the walls must be on the grid lines.
+  Editors will show the grid lines (when enabled) (usually shown in blue)
+  to make this easier.
+  
+  To make an unusual width passageway select a 64 unit width grid and locate
+  the center of it on the center of your passageway.  This will put the
+  lights on any ceiling texture, and the pattern on any floor texture, down
+  the center of your passageway.  Now the width of the passageway can be
+  varied by moving both walls equal distance from that center line.
+  Do not move the passageway center, or else floor textures and ceiling
+  lights will appear off center.
+
+Off center passageway.
+  1. Choose a non-patterned ceiling texture and floor texture, such as rock.
+     Use wall textures with lights, or lamps (things) for lighting.
+  2. Make the passageway 64 units wide and 32 units off center, then there
+     will be lights down the edges of the passageway.
+
+Passageway with door.
+  A door stops 4 units lower than the ceiling, so:
+  1. Make passageway exactly the height of the door.
+     This results in best appearance as the top of the door will not be
+     cut off.
+  2. Make passageway 60 units or more high, but lower than size of door.
+     A short passageway will cut off top of door, but will function.
+  3. Make passageway whatever height you want, but put sectors on both
+     sides of any door (at least full width of the door).
+     The guard sectors are the height of the door, but can be very thin,
+     such as 1 unit.  The guard sectors become the adjacent sectors for
+     the door operation and disconnects such operation from the passageway
+     height. Fill in the upper texture for the guard sectors sidedefs,
+     where visible.
+
+
+
+Texture coverage.
+  See the TEXTURES document for a full explanation.  What follows uses
+  different terms but is directly useful.
+  * For doors the ceiling moves.
+  * For lifts the floor moves.
+  * Generalized linedefs can move floors and ceiling heights in many ways.
+  * Windows in wall, and other holes, modify the rules.
+    The floor of a window is at the window sill, not the room floor.
+
+  The texture will be repeated, vertically and horizontally, if necessary
+  to fill the area.
+  * Textures that are 128 high will tile vertically correctly, but shorter
+  ones will show visual garbage because
+  * The engine assumes that any tiled texture is 128 high.
+  * Do not allow textures to tile vertically unless you know what is going
+    to happen.  For many textures it looks bad.
+
+  Walls that are longer than a few thousand units can have bad round-off
+  effects in display.
+  It is recommended to put in extra vertices when a wall exceeds 1024.
+
+  If a wall has many segments, such as steps have, then it will benefit from
+  texture alignment.
+  Some editors have a function to do this.
+  
+  Horizontal texture alignment.
+    1. Start at the left edge, with an offset of 0.
+    2. For each linedef
+	Add the length of all the linedef to its left and put that in
+	for offset_x.
+	This is easily done by adding the previous offset_x to the length
+	of the previous linedef.
+    3. If you reach a texture change you can stop.
+    4. Use negative offsets when they are easier, such as the textures to
+       the left of a long one, or a special texture.
+    5. The engine will accept offsets from -32767 to +32767, and will wrap
+       when this exceeds the texture.
+       
+  Vertical texture alignment.
+    1. Start at some good normal wall and align the others to it.  Try to
+       pick the highest as this one needs the 0 offset.
+       Negative offsets cause the bottom of the texture to be displayed at
+       the top, and this does not work well for most textures.
+    2. If the wall segment has a window, try the upper unpegged and lower
+       unpegged first, as this will usually align the texture.
+    3. If the wall segment has a lower ceiling than the reference wall
+       segment, then subtract the ceiling levels and use the difference as
+       the offset_y (positive number).
+    4. If the wall segment has a higher ceiling than the reference wall
+       segment, then subtract the ceiling levels and use the difference as
+       the offset_y (negative number).
+       This will look bad if there is any decoration on the bottom of the
+       texture.  It works well for brick, plain stone, and uniform textures.
+    5. If you need to align to some shelf.
+       a. Try adjusting the shelf to the texture instead as it gives a
+          better appearance when a shelf is on a brick boundary.
+       b. Positive increments to offset_y will lower the texture.
+       c. Positive increments to the shelf will raise the shelf.
+
+  If a linedef is one-sided then only the one sidedef applies.
+    Upper texture:	NONE
+    Middle texture:  floor and ceiling of sidedef1
+    Lower texture	NONE
+    
+
+  If a linedef has both sidedefs and the 2s bit (two-sided) is set
+  then it is a divider between two sectors that interact.
+  * The middle is the area where things can move from one side of the
+    linedef to the other, as determined by floor and ceiling heights of the
+    sector.
+  * Nothing can pass through upper and lower areas.
+  * If an upper or lower texture is missing, it will appear as HOM
+    (Hall of mirrors).
+  * Only the two sidedef sectors are considered for each linedef texturing.
+
+  Texture Heights:
+    Upper texture:	(independent for each sidedef)
+	If sector ceiling is F_SKY1 then upper texture is F_SKY1.
+	Only visible on higher ceiling side of linedef.
+	Top:		The sector ceiling of this sidedef
+			(which can be different on each side).
+	Bottom:		Same as middle top (the other sector ceiling.
+    Middle texture: 	(the SAME height for both sidedefs of the linedef)
+	Top:		Lowest of the ceilings.
+	Bottom:		Highest of the floors.
+    Lower texture:	(independent for each sidedef)
+	Only visible on lower floor side of linedef.
+	Top:		Same as middle bottom (the other sector floor).
+	Bottom:		The sector floor of this sidedef.
+  
+ Window Texture Heights:  Applies when a window sector is made in a wall.
+    Upper texture:
+	Top:		Room ceiling
+			(which can be different on each side of wall).
+	Bottom:		Same as middle top (top of window opening).
+    Middle texture:	The window opening, usually has no middle texture. 
+	Top:		Top of the window opening (window sector ceiling).
+			If the adjacent sector ceiling is lower then it will
+			block part of the window, and an upper texture will
+			have to be applied to the window side sidedef.
+	Bottom:		Bottom of the window opening (window sector floor),
+			unless the neighboring sector floor is higher.
+			If the adjacent sector floor is higher then it will
+			block part of the window, and a lower texture will
+			have to be applied to the window side sidedef.
+    Lower texture:
+	Top:		Same as middle bottom (bottom of window opening). 
+	Bottom:		Room floor
+			(which can be different on each side of wall).
+
+   
+Texture pegging.
+  All textures are drawn relative to some room reference position.  In that
+  respect they are pegged to that reference and will move with it.
+  To a viewer within the room, the texture does not appear to move when
+  the room floor or ceiling moves, but to viewer from another room
+  they clearly move with the room (such as in an elevator).
+  The upper pegged and lower pegged attributes "mostly" refer to being pegged
+  to a NEIGHBOR sector ceiling or floor.
+
+  Normal pegging:  Upper unpegged off, Lower unpegged off
+    Upper texture:
+	Texture bottom is pegged to the lowest ceiling, such as top of window
+	opening (textures misaligned), or bottom of door (GOOD).
+	The texture will move with this ceiling.
+    Middle texture:
+	Texture top is pegged to the lowest ceiling.
+	The texture will move with this ceiling.
+	This applies to the space above the highest floor and below the
+	lowest ceiling.
+        Used on lift walls (GOOD), it stops the walls from moving with
+	the lift.
+    Lower texture:
+	Texture top is pegged to the highest floor, such as bottom of window
+	opening (textures misaligned), or floor of lift (GOOD).
+	The texture will move with this floor.
+
+  Upper unpegged:
+    Upper texture:
+	Texture top is pegged to the sector ceiling.
+        Used above window opening (GOOD) it makes textures align with
+	adjacent wall (of same sector).
+	The texture will move with the sector ceiling, ignoring neighbor
+	sector.
+    Middle texture:	(Unaffected, see Normal)
+    Lower texture:	(Unaffected, see Normal)
+
+  Lower unpegged:
+    Upper texture:	(Unaffected, see Normal)
+    Middle texture:
+	Texture bottom is pegged to the highest floor.
+        The texture will move with this floor.
+	This applies to the space above the highest floor and below the
+	lowest ceiling.
+        Used on door track (GOOD), it stops the door track from moving with
+	the door.
+    Lower texture:
+	Texture top is pegged to the sector ceiling of this sidedef.
+	Appears like texture bottom pegged to sector floor, but only when
+	texture is same height as the sector.
+	The texture will move with the sector ceiling, ignoring neighbor
+	sector.
+        Used below window opening (GOOD) it will make textures align with
+	adjacent wall (of same sector).
+        Used on door track (GOOD), it stops the door track from moving with
+	the door.
+
+
+Transparent textures.
+  These textures have transparent areas.
+  Use as the middle texture only, where the next sector will show through
+  in the transparent areas.
+  If used on an upper or lower texture, they will display multi-colored dots
+  because the doom engine considers upper and lower
+  textures to have nothing behind them, so random bits show instead.
+  Sometimes some other texture displays in the transparent regions.
+
+  Transparent textures:
+  * Do not tile vertically, they appear once at the top of middle texture.
+  * They tile across the horizontal normally.
+  * The space below and above a transparent texture is transparent.
+
+  The offset_y can be used to position transparent textures.
+
+  Positive offset_y raises the transparent texture.
+  * It will cross into the upper texture area and appear there, if there is no upper texture.
+  * If there is an upper texture, then that appears.
+
+  Negative offset_y lowers the transparent texture.
+  * It will cross into the lower texture area and appear there, if there is
+    no lower texture.
+  * If there is an lower texture, then that appears.
+  * At all times the lower texture area is solid as a wall and will not
+    pass anything.
+
+  The IMPASSABLE flag stops walking through the transparent wall.
+  The flag allows shooting through the wall, and it does not matter where
+  the holes are in the texture.
+  It is recommended on bars, chain-link fence, and similar.
+
+  Textures with transparent areas:
+    FreeDoom Textures are described, but they are expected to be
+    representative of any texture implemented for the name.
+    BRNBIGC	128x128		brown wall with slots
+    BRNBIGL,R	32x128		brown wall with slots, end pieces
+    BRNSMALC	64x64		brown small wall with slots
+    BRNSMALL,R	32x64		brown small wall with slots, end pieces
+    BRNSMAL1,2	64x64		brown slotted square
+    MIDBARS1	64x128		vert bars
+    MIDBARS3	64x72		vert bars
+    MIDBRN1	64x112		vert bars
+    MIDBRONZ	64x128		panel with hole
+    MIDGRATE	128x128		vert bars
+    MIDSPACE	64x128		chain link fence
+    MIDVINE1,2	256x128		vine pattern on transparent
+    GLASS1,1B,2,2B 64x96	broken window (48x96), transparent
+    STEPTOP	128x16		single brown bar with rounded edge,
+    				transparent above and below.
+    STEPLAD1	64x16		brown rung of ladder,
+    				transparent above and below.
+  NOT TRANSPARENT
+    BLAKWAL1,2	64x128		black, with frame (but not transparent)
+
+
+Walk-through walls/door.
+  Looks like a wall but the player can walk through the texture.
+  
+  This can be a cruel trick.  When it is done with a regular wall texture
+  it requires the player to randomly walk at all walls to find one or more
+  that are "fake".
+  It is more playable when special textures are used, that the player might
+  suspect to be able to walk through.
+
+  Textures that work well as walk-through:
+    FreeDoom Textures are described, but they are expected to be
+    representative of any texture implemented for the name.
+    GLASS1,1B,2,2B 64x96	broken window, transparent
+    MIDVINE1,2	256x128		vine pattern on transparent
+    WFALL,1..4	64x128		waterfall
+    BFALL1..3	64x128		blood-fall (like a waterfall)
+    SFALL,1..4	64x128		green-fall (like waterfall)
+    BRWINDOW	64x128		pretend you went through the window
+    FIREBLUE1,2	128x128		blue and red speckle
+    FIRELAVA,2,3 128x128	orange and red fire
+    FIREMAG1..3 128x128		red fire
+    FIREWALL,A,B 128x128	red fire
+    BLAKWAL1,2	64x128		black, with frame
+    AASTINKY	32x72		vert red and white stripes, like canvas
+    CRACKLE2	64x128		very red, with crackle pattern
+    REDWALL	128x128		blotchy red
+    DBRAIN1..4  64x32		black and red blotches
+    SKY1	256x128		nebulous clouds
+    SLOPPY1,2	64x128		pink blotches
+  DO NOT USE textures made up of patches in a walk-through wall.
+  Some may be tempting, but used in a walk-through wall they will provoke
+  the "Medusa" effect.
+  The "Medusa" effect is a failure by the rendering engine in the original
+  Doom that slows the game to a crawl.  All engines derived from
+  the original can be expected to have it, while other rendering engines
+  might not produce it.
+
+
+Textures that are made up of patches.
+  These textures should not be used for walk-through walls, as they will
+  provoke the "Medusa" effect.
+  FreeDoom Textures are described, but they are expected to be
+  representative of any texture implemented for the name.
+    AASTINKY			red and white stripes
+    BIGDOOR1			shiny with logo
+    BIGDOOR5			wood and metal
+    BIGDOOR6, BIGDOOR7		wood and metal with skull
+    BRICK5			old brick
+    BRNPOIS, BRNPOIS2		greenish/brown metal with poison sign
+    BROVINE, BROVINE2		tan/green metal, with vines
+    BROWN1			tan metal
+    BROWN144			brown smeared
+    BROWNHUG			leather brown
+    BROWNPIP			tan metal with pipes
+    BROWNWEL			brown leather with two things
+    CEMPOIS			cement wall, poison sign
+    COMP2			computer panel
+    COMPBLUE			blue
+    COMPOHSO			blue traces
+    COMPSPAN			gray
+    COMPSTA1, COMPSTA2		shiny metal with monitors
+    COMPTALL			computer panel
+    COMPTILE			blue and gray
+    COMPUTE1, COMPUTE2, COMPUTE3	computer panel
+    COMPWERD			2 gray comp panels
+    CRATE1, CRATE2		tan crate, gray crate
+    CRATE3, CRATELIT		tan crate and gray crate
+    CRATEINY			small crates
+    CRATEWIDE			wide crates
+    DOORBLU, DOORBLU2		blue door trim
+    DOORHI			white striped door
+    DOORRED, DOORRED2		red door trim
+    DOORYEL, DOORYEL2		yellow door trim
+    EXITDOOR			fancy door
+    EXITSIGN			EXIT sign
+    EXITSTON			exit sign on gray stone
+    GRAY1, GRAY2		gray panel
+    GRAY4			gray 2 panel
+    GRAY5, GRAY7		gray, warning stripe
+    GRAYBIG			gray panel
+    GRAYDANG			gray, danger sign
+    GRAYPOIS			gray, poison sign
+    GRAYTALL			gray, red stripe
+    GRAYVINE			gray panel, with vines
+    GSTONE1			green stone
+    GSTVINE1, GSTVINE2		green stone, with vines
+    ICKDOOR1			gray door
+    ICKWALL1			gray panel
+    ICKWALL2, ICKWALL3, ICKWALL4	gray 2 panel
+    ICKWALL5, ICKWALL6, ICKWALL7	gray 2 panel
+    LITE2			brown metal, with light
+    LITE3, LITE4, LITE5		row of light bars
+    LITE96			brown metal, with 2 lights
+    LITEBLU3, LITEBLU4		blue light bars
+    LITEMET			hex metal, with lights
+    LITERED			red light bars
+    LITESTON			gray stone, with 2 lights
+    METAL1			gray hex metal
+    NUKEDGE1			brown with nukage edge
+    NUKPOIS			brown with nukage and poison sign
+    PIPE1			pipes with red edge
+    PIPE2, PIPE4		pipes wall
+    PIPE6			pipes, with nukage edge
+    PLANET1			shiny metal, 6 monitors
+    REDWALL1			red
+    SHAWN1			shiny metal door, with logo
+    SKIN2			pink skin
+    SKINBORD			pink and tan
+    SKINCUT			red and metal
+    SKINEDGE, SKINFACE		pink
+    SKINLOW			dark tan
+    SKINMET1, SKINMET2		skin and metal
+    SKINSCAB, SKINSYMB		skin and metal
+    SKINTEK1			skin and pipes
+    SKSPINE2			skin
+    SKULWAL3, SKULWALL		skulls and metal
+    SLADPOIS			SLAD wall, poison sign
+    SLADSKUL			SLAD wall, skull
+    SP_HOT1			red block
+    STARBR2			brown
+    STARG1, STARG2, STARG3	green, gray
+    STARGR1, STARGR2		gray
+    STARTAN, STARTAN2, STARTAN3	tan, gray
+    STEP1, STEP2, STEP3, STEP4, STEP5, STEP6	steps
+    STONE			gray and warning stripe
+    STONE2, STONE3		gray block
+    STONGARG			gray block, gargoyle
+    STONPOIS			gray, poison sign
+    SUPPORT2			shiny metal with pattern
+    SUPPORT3			dark metal
+    SW1..			all switches
+    SW2..			all switches
+    TEKBRON1			tan pattern
+    TEKWALL1, TEKWALL6		machinery
+    WOOD1, WOOD3, WOOD4, WOOD5	wood wall
+    WOODGARG, WOODSKUL		wood wall, gargoyle, skull
+
+
+Animated Textures
+   Textures only animate when they are used as the middle texture.
+    WFALL,1..4	64x128		waterfall
+    BFALL1..3	64x128		blood-fall (like a waterfall)
+    SFALL,1..4	64x128		green-fall (like waterfall)
+    BLODGR1..4  32x128		pipe wall with green dripping
+    BLODRIP1..4 32x128		pipe wall with red dripping
+    FIRELAVA,2,3 128x128	orange and red fire
+    FIREMAG1..3 128x128		red fire
+    FIREWALL,A,B 128x128	red fire
+    FIREBLU1..3 128x128		blue and red
+    GSTFONT1..3	64x128		green block wall, head with red flowing from mouth
+    ROCKRED1..3	128x128		red and block stone, glowing red
+    SLADRIP1..3	64x128		SLAD wall with grate, falling nukage
+    DBRAIN1..4  64x32		black and red blotches
+
+Animated Flats
+    BLOOD1..3			red
+    FWATER1..4			blue
+    SWATER1..4			
+    NUKAGE1..3			green
+    SLIME1..4			tan with brown specks
+    SLIME5..8			tan with gray specks
+    SLIME9..12			gray with pink cracks
+    LAVA1..3			black and red
+    RROCK05..08
+
+
+
+
+Paneling a room.
+  Some texture panels have borders.  This looks awful with random sized
+  linedefs.
+  If the room is too short for the texture it will cut off the bottom of
+  the texture.
+
+  Solutions:
+  * Make each linedef the exact size of the texture.
+    This limits the room to multiples of 64 units.
+  * For short rooms, make normal wall linedefs lower unpegged.
+    This will peg the texture to the floor instead of the ceiling, so the
+    tops get cut off instead.
+    For windows, lower unpegged.
+  * Cut off the borders.
+    Adjust the texture offset_x by the border width, for every texture.
+    This will allow adjacent short linedefs to tile without a border.
+    Pick where you want the borders to appear, and eliminate them
+    everywhere else.
+    Be aware that the border is generally made to appear in pairs on both
+    adjacent textures, not just one.  Otherwise it appears chopped off.
+    The corner of the room is an exception.
+    This will involve cutting long linedefs into ones shorter than 64 units,
+    so the borders can be cut off.  This prevents tiling or the border on the
+    other edge showing.
+  * Adjust the border position, or cut it off.
+    Adjust the texture offset so the border appears where desired.
+    Possibilities:
+      * Force the border to appear at uniform increments across room.
+      * Force the border to only appear symmetrically around windows and
+        other structures.
+        It looks weird if it is right under the window edge.
+      * Eliminate the border except at the room corners.
+      * Eliminate the border everywhere
+      * Use the border only for special decoration, such as around a
+        fireplace or other opening.
+
+
+
+Making a door.
+  Many editors have a function to make a door from a sector.
+  Make a narrow sector the width and thickness of the door.
+  Select it and invoke the editor function "Make door from sector".
+
+  A door is a sector where the ceiling is lowered to the floor to close
+  the door.  There are special controls to open and controls such doors.
+  The door is opened by raising the ceiling of the door sector to the
+  lowest adjacent sector ceiling height - 4.
+  A strip of the lowest part of the door will show when it is open.
+
+  If you make a door sector flush with a room sector then:
+  * The door texture will repeat over the door
+  * When the door opens, the whole wall over the door will move up too.
+  * The map will see the door as being open, and will show the room
+    behind the door, even if it is secret.
+
+  To make a decent appearing door it is necessary to block the view over
+  the door.
+  * Put the door in a hallway that is the same size as the door.
+  * Inset the door (a very short hallway that is same height as door height,
+    and usually same width).
+  * Create a beam or other wall overhang over the door.  This requires a
+    sector in front of the door where the ceiling is at door height.
+  * A shallow facade over the door. This requires a sector in front of
+    the door where the ceiling is at the door height.
+
+Initial state of the door:
+  * Most editors will make the door closed, with the ceiling to the floor.
+  * The ceiling height can be changed to make the door partially or
+    fully open, with no other side-effect.
+
+Operation of the door:
+  * The behavior of a door is determined by the linedef type that triggers it.
+  * When more than one linedef can trigger a door, then each can have a
+    different operation.
+
+Door difficulties
+  * Doors cannot be in adjacent sectors and operate independently.
+    Each will block the other from opening any farther than the bottom of
+    the other because it is a low ceiling (they move only 4 units).
+    Put a narrow buffer sector (non-door) between them so they have
+    independent operation.
+  * If the doortrack is a sector then those sector ceiling and floor heights
+    matter.
+    A door operated using any Boom ceiling moves such as Highest neighbor
+    floor, or Lowest neighbor ceiling, will have problems with a
+    doortrack that is a sector.
+    Try making the doortrack sector floor=ceiling= 10 units below any other
+    floor.
+  * If a door is split into segments then each segment behaves independently.
+    * Cannot trigger them all from a door push operation.
+    * A button push operation will trigger them all, and those that get stuck
+      due to neighboring ceilings or floor will not affect those
+      parts that move.
+  * When the door floor is higher than the neighboring rooms then the
+    automapper will treat the door as always being open, and will
+    show the room on the other side of the door on the map.
+  * DO NOT put a linedef trigger within 20 units of a door, or else the
+    player will not be able to open the door.
+    Put it back around 36 units from the door to avoid all complications.
+
+Put a sill on your doors
+  * Every door should have floor on each side of the door, that is at the
+    same height as the floor under the door.
+  * When the floor of the room is lower than the door, then DO NOT make the
+    door the step, have at least a sill.
+  * The sill (a thin sector), such as the sector that insets the door into
+    the wall, will isolate the door from the room floor height.
+  * Without the sill, the map will be able to see past the door because it
+    sees the door as being open when the door is higher than the
+    floor of the neighboring sector.
+
+Door Operations:
+   Door activation:
+     * By Push (P1,PR)(D1,DR), which does not use the tag value.
+       * Boom uses the tag (for all P1,PR actions), and changes the lighting
+	 of any sectors with the same tag, to max neighbor lighting upon
+	 opening, and to min neighbor lighting on close.
+     * By Switch (S1,SR) with same tag, and a door action.
+     * By walkover of a linedef (W1,WR) with same tag and a door action.
+     * By shooting a linedef (G1,GR) with same tag and a door action.
+     
+   There can be more than one linedef trigger, and they do not need to be
+   alike.  One may open door, and another close it.
+   One may open it slow and another silently.
+   
+   For regular door actions:
+      * door speed: fast or slow
+      * monsters cannot trigger doors (except for one case)
+   Boom generalized door actions allow select of:
+      * wait time: 1, 4, 9, 30 sec.
+      * door speed: slow, normal, fast, turbo
+      * monsters can trigger door: no or yes 
+   Functions:
+      * Door Open, stay open		(manual).
+      * Door Close, stay closed		(manual).
+      * Door Open, wait, re-close	(normal automatic door).
+         For regular doors, the open wait time is 4 sec.
+         Door type=1 allows monsters to open door.
+         Boom generalized doors allow selection of: 1, 4, 9, 30 sec.
+      * Door Close, wait, re-open	(unusual).
+         For regular and extended doors the closed wait time is 30 sec.
+         Boom generalized doors allow selection of: 1, 4, 9, 30 sec.
+         Only slow doors.
+   Locks:
+     * The linedef action determines whether the door has a lock, it is the
+       action that requires a key, not the door.
+     * It may have a different color lock for each trigger, and for each side
+       of the door.
+     * Only door actions have locks.
+     * Doom locked door actions allow only a few lock/key actions.
+        (red key, blue key, yellow key (key= card or skull)
+	(open or open-wait-close)
+     * Boom generalized doors allow any combination of door action and
+       lock/key.
+        (red key, blue key, yellow key (key= card or skull),
+         red card, blue card, yellow card, red skull, blue skull, yellow skull,
+         any key, all 3 colors, all 6 keys)
+	 
+
+
+Door textures  W x H.
+  FreeDoom Textures are described, but they are expected to be
+  representative of any texture implemented for the name.
+  Wide door 128 wide.
+    BIGDOOR2  128x128 gray metal cross-beamed
+    BIGDOOR3  128x128 greenish tint version of BIGDOOR2
+    BIGDOOR4  128x128 brownish tint version of BIGDOOR2
+    BIGDOOR6  128x128 metal and wood, with skull
+    BIGDOOR7  128x128 metal and wood, with gold skulls
+    ZDOORB1   128x128 big silver metal door
+    ZELDOOR   128x128 big silver metal door, with cross brace, symbols
+    BIGDOOR1  128x96  flat silver with logo
+    BIGDOOR5  128x112 metal and wood
+    EXITDOOR  128x72  use left side or right side (xoffset=64)
+  Small door 64 wide
+    DOOR1     64x72   standard tan door
+    DOOR3     64x72   shiny metal door
+    ICKDOOR1  64x72   gray version of DOOR1
+    DOORHI    64x128  narrow door of tan and silver stripes
+    SPCDOOR1  64x128  brown tinted door, with warning stripe
+    SPCDOOR2  64x128  gray tinted door, with warning stripe
+    SPCDOOR3  64x128  gray, modern 7 panel door
+    SPCDOOR4  64x128  brown tinted door
+    EXITDOOR  128x72  use left side or right side (xoffset=64)
+
+  Could be used as a door, especially if door is shorter than full texture
+  height:
+    BROWNGRN  64x128  greenish metal
+    BROWNHUG  64x128  brownish something
+    COMPBLUE  64x128  blue pattern
+    COMPSPAN  32x128  gray
+    COMPTALL  256x128 computer motif, has grill at offset=64,
+    			that would make a 64x64 door
+    CRATE1, CRATE2, CRATE3, CRATELIT
+    	      64x64   one way to open a crate to get whats inside.
+    CRATWIDE  128x128 wide crate, use 128x64 door to open bottom crate
+    		(inset door at least 1 or else top crate will move)
+    FIREBLU1, FIREBLU2 128x128, blue and red speckle
+    FIRELAVA, FIRELAV2, FIRELAV3 128x128 orange and red fire
+    FIREMAG1, FIREMAG2, FIREMAG3 128x128 red fire
+    GLASS1, GLASS1B, GLASS2, GLASS2B
+              64x96   glass doors that open
+    GRAY1     64x128  gray panel
+    GRAY2     64x72   gray small panel
+    GRAY4     64x128  gray two panel door
+    GRAY5     64x128  gray panel with warning stripe
+    GRAY7     256x128 gray wall with warning strip, use any section
+    GRAYBIG   128x128 plain gray panel
+    GRAYDANG  64x128  gray panel with warning sign
+    GRAYPOIS  64x72   gray panel with warning sign
+    GRAYTALL  128x128 gray panel with red stripe
+    ICKWALL1  64x128  gray panel
+    ICKWALL2  64x128  gray two panel door
+    ICKWALL3, ICKWALL4, ICKWALL5, ICKWALL6, ICKWALL7
+    	      64x128  gray two panel
+    MARBFAC4  64x128  gray marble, with green skull
+    MARBGRAY  64x128  gray marble
+    METAL     64x128  brown metal
+    METAL1    64x128  gray hex metal
+    METAL2    64x128  brown metal 4 panel
+    METAL3    64x128  brown metal 4 panel, with electrical markings
+    METAL5    64x128  brown metal 6 panel
+    MODWALL1  64x128  brown and gray panel
+    MODWALL2  64x128  brown, gray, black panel
+    MODWALL3  64x128  gray and black panel
+    MODWALL4  64x128  gray and black panel
+    PANCASE2  64x128  plain wood panel
+    PANEL2    64x128  wood and gray 3 panel
+    PANEL3    64x128  wood and gray 3 panel
+    REDWALL   128x128 very red
+    SHAWN1    128x128 shiny metal with logo
+    SHAWN2    64x128  shiny metal
+    SHAWN3    64x72   shiny metal with logo
+    SILVER1   64x128  shiny metal
+    SILVER2   64x128  shiny metal with blue
+    SLADPOIS  64x128  patterned metal with danger sign
+    SLADSKUL  64x128  patterned metal with skull
+    SLADWALL  64x128  patterned metal
+    SLOPPY1, SLOPPY2, 64x128  pink slop
+    SPACEW3   64x128  dark gray louvered panel
+    SPACEW4   64x128  brown 8 panel
+    STARG1    64x128  green tinted 12 panel
+    STARG3    128x128 green and gray 23 panel
+    STARGR1   64x128  gray tinted 12 panel
+    STARTAN1  64x128  tan tinted 12 panel
+    STARTAN3  128x128 tan and tray 23 panel
+    STONE     256x128 mottled gray, with 2 warning stripes
+    STONE4, STONE5    64x128  cracked gray stone
+    STONE6, STONE7    64x128  cracked brown stone
+    STONPOIS  64x128  gray stone with danger sign
+    STUCCO    64x128  light brown panel
+    SUPPORT2  64x128  shiny metal, with 3x7 pattern
+    SUPPORT3  64x128  dark metal
+    TANROCK2  64x128  mottled tan
+    TANROCK3  64x128  darker mottled tan
+    TANROCK4  64x128  mottled tan with pattern
+    TANBRON1  128x128 patterned tan panel, use left or right
+    TEKGRN2   64x128  TEK pattern
+    TEKGRN3   64x128  TEK pattern with blue grill
+    WOOD1     256x128 wood boards
+    WOOD10    128x128 wood board panel with crossbrace, use whole
+    WOOD12    64x128  wood panel, horz boards
+    WOOD3     256x128 wood squares, 4 sections, use any section
+    WOOD4     64x128  wood 2 panel, 2 skulls
+    WOOD5     256x128 wood boards with metal bracing
+    WOODMET1  64x128  wood boards with metal bracing
+    WOODMET2  64x128  wood boards with metal bracing, gargoyle
+    WOODMET3, WOODMET4  64x128  wood boards with metal bracing, blood
+    WOOD6     64x128  2 wood boards, with center brace
+    WOOD7     64x128  2 wood boards, with claw marks
+    WOOD8     64x128  2 wood boards
+    WOOD9     64x128  2 wood boards, distressed
+    WOODGARG  64x128  wood boards with gargoyle
+    WOODSKUL  64x128  wood boards with skull
+    WOODVERT  64x128  vertical wood boards
+    ZIMMER1   64x128  green ZIM pattern panel
+    ZIMMER2   64x128  green panel
+    ZIMMER3   64x128  brown ZIM pattern panel
+    ZIMMER4   64x128  brown panel
+    ZZWOLF10  128x128 2 silver doors, use one or both
+ 
+
+Door accessories:
+    This is decoration and is not enforced, so designer could purposely
+    use wrong color strip, or even use them for the door itself.
+    These can also be used to make bars, where the player must use key to
+    make the bars open.
+    FreeDoom Textures are described, but they are expected to be
+    representative of any texture implemented for the name.
+    DOORTRAK  8x128   Every door should have this as side textures of the door.
+    DOORBLU, DOORRED, DOORYEL
+    	      8x128   narrow colored light strip, used alongside door to
+	      	      indicate that need key to operate it.
+    DOORBLU2, DOORRED2, DOORYEL2
+    	      16x128  wider colored light strip with skulls.
+    EXITSIGN, 64x16   EXIT sign
+    LITE3     32x128  light strip
+    LITE4, LITE5  16x128  light strip, can use top or bottom
+    LITEBLU1  8x128   blue light strip
+    LITEBLU2  16x72   blue light strip
+    LITEBLU3  16x128  blue light strip
+    LITEBLU4  16x128  blue light strip
+    LITERED   16x128  red light strip
+
+Inset a door:
+  An inset door is a hallway that is the same size as the door.  It can be
+  very short.
+  Many times it has special door trim next to the door.  These special trim
+  are 8 or 16 units thick.
+  Construction:
+  1. Get the room/hallway sectors for both sides of the door created.
+     Start with a single box and then immediately assign some textures for
+     those walls.  This helps because the editor will copy those textures as
+     you split walls and make more complicated nooks and pillars.
+  2. Where the doorway will be, make a nook in one room.  Add a linedef and
+     split the nook off as a new sector.  This will be the hallway between
+     the rooms, which contains the door.
+  3. Connect the door sector to the other room by moving the vertices
+     on top of the room's linedef.  Have the editor split the linedef and
+     combine lines.
+  4. Remove the middle texture in the door opening.
+  5. Add the upper texture over the inset doorway, using the same texture as
+     the rest of the room.
+     For each upper texture set the linedef to upper unpegged.
+     This is the main achievement of the inset door, that the upper texture
+     over the door matches the room and does not move with the door.
+
+
+Door with different floor levels on each side.
+  Must set lower unpegged on the floor step lower texture, or it will move
+  with the door.
+  The door will close to the lower of the floors.
+
+
+Door that stops partway up.
+  This door goes up and down, but will stop at a specified level partway up.
+  1. Make a normal door.
+  2. In the door frame linedef, where the DOORTRAK normally is, make a nook
+     and split it into a separate sector.  This can be made to be
+     completely hidden in the door track, so it does not have to affect
+     anything the player can see.
+     * It does not need to be any particular size, but it must be a sector
+     adjacent to the door sector.
+     * A shallow triangle is adequate, only the linedef and its sidedefs are
+     relevant.
+     * A linked sidedef to a sector somewhere else will also work, even if it
+     is shared with other linedefs.
+     * The doortrack sector only needs to be adjacent in the sense that the
+     doortrack linedef sidedef references it.
+  3. Set the doortrack sector ceiling to where the door should stop rising.
+     Set the floor to the room floor.
+
+  The door will stop at 4 units above the lowest ceiling, which is now in the
+  doortrack.
+  Ceiling raise and lower actions upon the doortrack sector can control the
+  height of the door.
+
+Door that has a midpoint stop.
+  1. Setup a door with a doortrack sector, or sector reference.
+     The sector must be adjacent to the door sector, but otherwise is
+     hidden in the doortrack.
+  2. Set the lower and middle textures of the doortrack.
+  3. Set the doortrack floor to the desired door stop point.
+  4. Set switches or walkovers to activate the door.
+     206,204,202,200	Raise ceiling to highest neighbor floor.
+			The door will move to the doortrack sector floor
+			height, and stay there.
+
+Remotely locked door.
+  This door will open only when all the locks are released.
+  It still will make a noise.
+  1. Make a normal door.
+  2. In the door frame linedef, where the DOORTRAK normally is, make a
+     doortrack sector.
+     This can be made to be completely hidden in the door track, so it does
+     not have to affect anything the player can see.
+  3. Set the doortrack sector floor=room floor and the
+     ceiling=( open door height + 4).
+  4. Within the doortrack, make a sector for each lock.
+     Each lock sector must be adjacent to the door, and adjacent to the
+     doortrack sector, but not adjacent to each other.
+     If the locks are adjacent to each other they might interact badly.
+     The sectors can be very thin, triangles work very nice.
+     You can use both door tracks.
+  5. Set the lock sector ceilings to the floor.  The door cannot rise above
+     the lowest of these.
+     It may more consistent with the noise to set them a few units above
+     the floor so the door appears to get stuck.
+     Set the lock sector floors to the room floor.
+  6. Set the middle textures of the lock sectors to DOORTRAK, or other
+     appropriate texture.
+  7. Tag each of the lock sectors.
+  8. Set switches and walkovers, using the sector tags, to release the locks.
+  
+  This can also be done with remote doortrack sectors, and remote lock sectors.
+  The actual sectors can reside anywhere, they only need
+  their sidedefs to reference the sector as being adjacent.
+  The problem will be with your editor's checking routine seeing them as
+  incomplete sectors, and wanting to fix them.
+  I know that some editors support such sector linking, but I do not know if
+  all engines are tolerant of it.
+
+  To release a lock use actions.
+     186,166,151,40	Raise ceiling to highest neighbor ceiling,
+     			will cause lock to rise to doortrack sector
+			ceiling height.
+  To lock the door use actions.
+     43,41,152,145	Lower ceiling to floor,
+     			stops door from opening at all.
+     The lock floor can be set to any height desired.  Must set lower
+     texture to DOORTRAK to cover this up.
+  To set a unique lock position.
+     Set the doortrack sector floor above the room floor.
+     206,204,202,200	Raise ceiling to highest neighbor floor,
+     			will cause the lock to move to the doortrack floor.
+
+
+Invisible door, or door with holes
+  Difficulties:
+  * Normally a door cannot use the transparent textures because those only
+    work on the middle texture.
+  * In the upper texture a transparent texture will display video garbage
+    in the transparent regions.
+  * When the door closes on a floor that is level with the adjacent floor,
+    the transparent effect disappears.
+  * When a transparent texture displays from below the floor, it displays
+    over the floor texture.
+    Having a lower texture on the same linedef will stop this.
+  * When an offset transparent texture displays above the ceiling, it
+    displays over the ceiling texture.
+    Having an upper texture on the same linedef will stop this, but only
+    as long as it is in view.
+    Having a different light level than the neighbor sector also seems
+    to stop this, for unknown reasons.
+  * When an offset transparent texture displays over a missing upper
+    texture, the effect works only some
+    of the time.  When the door ceiling goes above eye level then the
+    transparent areas get filled with something, like HOM.
+  * A transparent texture over the middle texture does not stop anything.
+    Monsters and players can walk through it.
+    If it is set impassable, then it is impassable to everything.
+  * When the transparent texture is positioned over the door, and the door
+    is made invisible using linedef type 242,
+    then can see through it, but cannot shoot through it.
+
+  This is from Boom Editing Tricks by Rellik imd. (sic), and Andre Majorel.
+  To make a door with iron bars, using Boom linedef 242.
+    1. Make your hallway and door.
+       Give the door a tag number, which you may need anyway to open it.
+    2. Make the doortrack lower unpegged, but leave it a normal wall texture
+       because there will not be a visible door.
+    3. Make the door sector floor at least 1 unit higher than the surrounding
+       sectors, which usually are the door inset sectors in front and back.
+       * Without this the middle texture and all the transparent texture
+         effects will cease to be displayed when the ceiling meets the floor.
+       * This keeps the middle texture displayed all the time.
+       * The lower texture on the tiny step stops the transparent texture from
+         displaying into the floor.
+       * One other thing this does is allow the automapper to see through
+         the transparent door.
+    4. Make a linedef (on a sector of the same height as the doorway)
+       a doom deep water type.
+       * type = 242
+	 tag = door sector tag number
+       * The sector on the sidedef_1 side will be the control sector
+         whose ceiling and floor heights will be used for the door.
+       * It must not be adjacent to the door itself, but the door frame
+         in front or in back will work.
+       * This could be any linedef but the sector must be the same height
+         as the door, and the door frame is convienent.
+       * This fixes the upper texture above the control sector ceiling height,
+         and thus makes the closing door invisible.
+       * The door floor will be displayed at the control sector floor height.
+       * The door ceiling will be displayed at the control sector ceiling
+         height, even when the door closes.
+    5. Make the door sector light level one unit brighter than the surrounding.
+       It is a mystery why it works, it may be engine dependent, or
+       nodebuilder dependent.
+    6. Put a bars texture as the middle texture of the door.
+       * Use positive offset_y (same as height of texture) to raise it so
+         it covers the upper texture.
+       * For these transparent textures, the engine displays them even when
+         they are offset over the upper, or lower texture area.
+       * When the door is closed, the transparent middle texture will be
+         displayed.
+       * The deep water effect hides the upper texture, so the transparent
+         bars display without interference from it.
+
+Door over a secret niche
+  A hidden shelf or niche with a valuable object.
+  The shelf has an object, that is close enough to the edge to be taken off
+  the shelf.
+  A door is put over the niche to hide the valuable object.
+  Problem:
+  * The door does not protect the object from being taken.
+    If the player brushes the outside of the door, they will get
+    the object, without opening the door, or even knowing it is there.
+    Suggestions:
+    A. Make it a walk-in secret area.
+    B. Start a scroller with the door opening, to bring the object to the
+       player.
+       The object can then be kept a safe distance back from the edge.
+    C. No door. The texture triggers a scroller that delivers the object.
+    D. Make the door a lift instead, the whole depth of the niche, with
+       the object on the lift.
+       Then the object will too high, until the lift/door is opened.
+
+
+Steps
+  Players can use steps up to 24 unit in height.
+  Can be any depth and width, as long as it can be stepped upon.
+  
+  Monsters can be reluctant to use steps.
+  This is engine dependent so you cannot depend upon what you witness play
+  testing on one engine.
+  Generally, monsters will not descend or ascend a stair:
+    1. If the step height is greater than 24 units
+    2. If the next step is smaller than they are.
+       If monsters need to use the stairs then they should have
+       32 unit deep treads.
+    3. If the steps are too steep.
+
+  Normal steps are:
+    6 high x 16 deep	= 7.2 in high x 12 in deep	common modern
+    7 high x 15 deep	= 8.4 in high x 11.25 in deep	industrial
+    7 high x 14 deep	= 8.4 in high x 10.5 in deep    older buildings
+    8 high x 13 deep    = 9.6 in high x 9.75 in deep	castle towers,
+    							very old buildings
+
+  Step height
+    24 units	2.4 feet		climbable
+    12 units	1.2 feet		steps for giants
+    10 units	1.0 feet		huge steps, barely usable,
+    					castle towers, ladders
+     8 units	9.6 in			** old buildings, difficult locations
+     7 units	8.4 in			*** common modern normal steps
+     6 units	7.2 in			*** common modern normal steps
+     5 units	6 in			** normal steps, easy to use
+     4 units	4.8 in			* shallow steps
+     3 units    3.6 in			step between levels
+     2 units	2.4 in			step between levels
+     1 unit	1.2 in			minimal
+
+  There are some stair textures (STAIR1, STAIR2), but they require
+  64 unit width, 32 unit depth stairs,
+  and the stairs must be aligned on the 64 unit grid.
+
+  The step face textures assume that the step is 16 units or less.
+  Do not use them on steps higher than 16 (such as 17 to 20 units high),
+  as they will not tile correctly,
+  and you will get multicolored visual garbage (sometimes).
+  Any normal step where you would consider using them should be
+  8 units high or less.
+
+
+ Monster sizes and usable steps
+    Monsters will go up first step when height is <24.
+    Monsters will go up 1 or 2 high steps, where they would not
+    go up 3 or 4 lower steps.
+    ?? are uncertain
+    Monster (WxH)	step		2 step		3 step
+			height		depth		depth
+    Human monster, Imp, Revenant, Vile		(40x56)
+			 8		4..68		4..68
+			10		4..68		18..68
+			12		8..68		18..68
+			14		32..68		34..68
+			16		34..68		34..68
+    Baron, Mancubus	(48x64)
+			 8		4..68		4..68
+			10		4..68		20..68
+			12		8..68		20..68
+			14		42..68		40..68
+			16		42..68		40..68
+    Demon		(60x56)
+			 8		4..68		4..68
+			10		4..68		26..68
+			12		8..68		26..68
+			14		54..68		52..68
+			16		52..68		52..68
+    Cyberdemon		(80x110)
+			 8		4..68		4..68
+			10		4..68		34..68
+			12		8..68		34..68
+			14		66..68		66..68
+			16		66..68		68
+    Spiderdemon		(256x100)
+			 8		4..68		4..68
+			10		4..68		>112 ??
+			12		8..68		>112 ??
+			14		>218 ??		>218 ??
+			16		>218 ??		>218 ??
+
+    Lost soul		32x56		floater
+    Cacodemon		62x56		floater
+
+
+Step face textures
+    FreeDoom Textures are described, but they are expected to be
+    representative of any texture implemented for the name.
+    STEP1     32x16   brown, with hilight
+    STEP2     32x16   tan, with stripe
+    STEP3     32x16   dark, with stripes
+    STEP4     32x16   light gray
+    STEP5     32x16   brown and tan, 8 panel
+    STEP6     32x16   tan brick
+    STEPLAD1  64x16   brown and tan, ladder rung
+    STEPTOP   128x16  dark brown
+
+
+Step ceilings
+  Real ceilings over steps do not descend with each step.  They stay flat
+  until the headroom becomes too high, then there is one drop to
+  a new ceiling level.
+  Too high depends upon the building, how much space is wasted, and if it
+  could be part of a room or a storage area.
+  This is done because many little walls are expensive to build, one larger
+  drop is much cheaper to do.  You only see sloped ceilings over
+  stairs when there is another stair over it on the floor above, or for
+  asthetic reasons such as in public buildings.
+  Older building designs did not waste effort and materials on slanted
+  ceilings in stairwells.
+  
+  Tunnels cut into solid rock are likely to have ceilings that are just
+  high enough at each step.
+
+  Because the player and monsters stand on a previous step until their entire
+  width passes, steps must have much heigher ceilings than passageways.
+  When the player is moving they cover even more distance, and steps.
+  If the player runs down the steps, they will bang their head.  This also
+  applies to going up the steps.
+
+  This table was started by experimentation, then filled in by calculation.
+  The player is 32 units wide, but for this calculation consider the player
+  to be 40 units long.
+  Each step could be tested against the MIN in this table, but really only
+  needs to be tested for those steps where the ceiling changes levels.
+
+  Step depth	Stair	Num stairs	Minimum headroom	Suggested
+		rise	under player	where ceiling drops	headroom (MIN)
+    14..20	16	3		(56+48) = 104		112
+    14..20	11	3		(56+33) = 89		96
+    14..20	 8	3		(56+24) = 80		88
+    14..20	 6	3		(56+18) = 74		88
+    14..20	 4	3		(56+12) = 68		72
+    20..40	16	2		(56+32) = 88		96
+    20..40	11	2		(56+22) = 78		88
+    20..40	 8	2		(56+16) = 72		80
+    20..40	 6	2		(56+12) = 68		80
+    20..40	 4	2		(56+ 8) = 64		72
+
+
+
+Ladder
+  A ladder is just a set of steps with very little depth.
+  Use the textures STEPLAD1 and STEPTOP as the lower texture of each rung.
+  Construction:
+  1. Create a sector box out the wall where the steps will be.
+     This will have to be a sector, not empty space.
+     Make it large enough to work with, it will be reduced in size as the
+     last step.
+  2. Set the box textures.
+     lower texture = STEPLAD1
+     set lower unpegged
+     floor texture = FLOOR4_5, MFLR8_2, FLAT10, or some other color choice.
+  3. Divide the box into ladder steps.
+     Set the height of each rung.
+     Make each step less than 16 high or else the transparent texture will
+     show HOM.
+     Set offset_x = 8 to make narrow ladders have an even appearance.
+     Set offset_y = 4 to make smaller visible rungs.
+  4. Put a dark texture on the wall next to the ladder so the black areas
+     on the rungs look like see-through.
+  5. Move the rung lines so each step is only 2 units deep.
+     The player will still be able to climb it, but monsters will not.
+
+Ladder with see through steps.
+  Looks like a stepladder.
+
+  The obvious methods do not work.
+  The transparent step textures do not work over lower textures,
+  as the transparent areas display HOM.
+  They would not display the room on the other side of the ladder anyway,
+  as the transparent effect would have to see through the lower texture
+  area of every ladder rung.
+
+  Use the Boom deep water effect to make the steps invisible.  This puts the
+  visible floor on the room floor and allows seeing through the ladder rungs.
+  The transparent textures STEPLAD1 and STEPTOP will float in their
+  usual locations, set by offset_y = -16.
+
+  The STEPLAD1 and STEPTOP textures are too thick (16 units) to make this
+  look good.  A transparent texture with a rung of 4 units would look
+  much better.
+
+  Construction
+  1. Create a sector box out the wall where the steps will be.
+     Make it large enough to work with, it will be reduced in size as the
+     last step.
+  2. If ladder side rails are desired (otherwise the rungs just float in
+     mid-air), then divide them from the box now and narrow them.
+     The rest of this procedure does not apply to them.
+  2. Set the box textures.
+     middle texture = STEPLAD1, STEPTOP, or some custom texture
+     offset_y = -16
+     set lower unpegged
+     floor texture = room floor, there will be no floor on the steps
+     sector tag = new sector tag
+  3. Create a Boom linedef type 242 to hide the rungs.
+     Any of the room walls next to the ladder will do, as long as the
+     sidedef_1 is into the room.
+     type = 242
+     tag = ladder sector tag
+  3. Divide the box into ladder steps.
+     Set the height of each rung.
+     Make each step more than 16 high or else there will be no
+     transparent texture exposed.
+     Set offset_x = 8 to make narrow ladders have an even appearance.
+  4. Move the rung lines so each step is only 2 units deep.
+     The player will still be able to climb it, but monsters will not.
+
+
+
+Linedef actions
+  The actions as categorized as P1,PR,W1,WR,S1,SR,M1.
+  Some editors denote P1,PR as D1,DR, as they are push door operations.
+  * P1,W1,S1,M1, etc. operate only once.
+    Avoid these if the door will close again, or if the action might need
+    to be repeated.
+    Use them if the action is a one-time event that is permanent.
+    These are recommended if the action is a +12 or +24 movement,
+    as it prevents moving the target another increment.
+  * PR,SR,WR, operate more than once (repetitive).
+    They are recommended if the door or lift operated will return to its
+    starting condition.
+  * P1, PR (D1,DR) operate doors.
+    The door is also its own switch.
+  * W1, WR are walkover triplines, operated by the players
+  * M1 are walkover triplines, operated by monsters.
+  * S1, SR are switches.
+  * G1, GR are switches (or walls) activated by being shot.
+
+  Linedef triggers will not start a new action if the sector is already
+  performing an action.
+  Doom only allows a sector to be performing one action at any one time.
+  Boom allows one floor action, one ceiling action, and one lighting action
+  on a sector simultaneously.
+
+  If there are two linedef triggers nearby, Doom will activate the one that is
+  closer to the player position.
+  Effects:
+  * A trigger linedef in front of another one will block triggering of the
+    one behind.
+  * A door can be put over a switch to prevent the player from pushing it.
+    If the door is too thin (I don't know how thin)
+    then a push on the door may trigger the switch behind it.
+    Giving the door linedef a trigger action prevents this.
+    The trigger action can be something unnoticable like close the door
+    (which is already closed).
+    *** I tried this and a trigger on the door will always block the switch
+    behind the door, even when the door is open.
+  * DO NOT put a linedef trigger within 20 units of a door, or else the
+    trigger will intercept pushes to open the door.
+
+Tripline
+  A tripline is a linedef that when a player (or monster) walks over it,
+  it invokes some specific action.
+  It is legal to have a linedef that is not part of a wall.  Such a linedef
+  will be double sided, with both sidedef having the same adjacent sector,
+  and usually the sidedefs have no textures.
+  Change the linedef type to the desired action, usually W1 or WR.
+  Change the linedef tag to the same tag value as the sector to be affected
+  (only sectors can be affected).
+  More than one sector can have the same tag value, and all will be affected.
+  Be careful to not use a tag value that is already in use.
+  Ask the editor for the next unused tag value.
+
+
+Simple Switches
+  * The S1 switch is a one time switch, once activated it does not reset.
+    * This does not stop other switches and triggers from operating on the same
+      tagged sector.
+  * The SR switch (BUTTON) activates a door or other operation, and when that
+    operation terminates it resets itself, and then is ready to be
+    activated again.
+  * Other operations on the same tagged sector are blocked until the first
+    operation is done.
+  * Boom extended this to one floor action, one ceiling action, and one
+    light action per tagged sector at one time.
+  * To make a switch, select a switch operation for the linedef (S1 or SR),
+    and select a switch texture for the sidedef.
+  * Switch textures have automatic indication. When the switch operates and
+    it has a SW1... texture, then it will display the corresponding
+    SW2... texture until the operation is done.
+  * Switches without an appropriate texture are hard on the player and
+    must be considered an usual difficulty.  They also will not display any
+    automatic indication.
+  * Switches are in textures with a wall background. Select the wall
+    background that matches the adjacent wall.
+  * If a switch in an appropriate wall background is not available, then
+    put the switch in an inset that is just big enough for the switch.
+
+Wall switches
+  When the wall is shorter than the full height of the texture, then it will
+  be drawn top down, so the switch is closer to the floor than normal.
+  Use the lower-unpegged attribute on the switch and all the walls to
+  force drawing from the floor up.
+
+Inset switch
+  The texture of the inset switch is not necessary for the switch to
+  function, but it looks better if it is centered and of the proper size.
+  1. Start with a wall where switch will be inset, note the texture name
+     and style.
+  2. Determine the switch type,
+     * get its dimensions (switch.width, switch.height)
+     * get its offsets (switch.x, switch.y)
+       (see following tables).
+     * These can be adjusted if more or less of the surrounding texture is
+       to be seen.
+       If the background texture of the switch matches the wall, then more
+       of it can be allowed to be seen.
+       Whatever is added to the width and height, then subtract half that
+       amount from the offsets x and y.
+  3. Determine the switch position height (pos.y).
+     It does not have to be at the switch height in the texture.
+  2. Make an inset nook using editor function.
+     (Make 4 more vertexes in the wall and arrange them to form a nook).
+  3. Move the middle line segment to the switch location, and adjust
+     the other vertices to square up the inset.
+  4. Make the inset width the width of the switch = switch.width.
+  5. Connect the outermost vertices with a linedef to split the sector,
+     thus the switch inset is a separate sector.
+  6. Set the inset sector floor = pos.y.
+  7. Set the inset sector ceiling = pos.y + switch.height
+  8. The linedef that is inline with the wall has no middle texture,
+     set the upper and lower textures to be the same as the wall.
+  9. Set the switch linedef texture to the switch texture.
+     This is the linedef in the back of the inset.
+     Set offset_x = switch.x
+     Set offset_y = switch.y
+
+
+Push-Push switch
+  *** This does not work.  It is included so others do not waste time trying
+  to make it work.
+  When a pushbutton linedef is in front of another, the front one will
+  intercept all the pushes, even when one is on a door and the door is opened.
+  The linedef trigger logic does not check for any such floor or ceiling
+  changes.
+  
+  From idea in DESIGN12.
+  Push switch that opens door when pushed, and then lowers the door when
+  pushed again.
+  1. Make an inset switch, that will control the door.
+     Put it at eye height to make it harder to see the switch door operate.
+  2. Make a thin door over the switch, as close and as thin as possible.
+     Give it the same sector tag number as the target door, so it goes up
+     when that door goes up.
+  3. Set the texture on the switch door to upper unpegged, so it does not
+     rise with the door.
+  4. Make both the switch texture and the switch door upper texture identical.
+     They will need different offset_x and offset_y to align them.
+  5. Give the switch door texture an action, and the door tag number.
+     61 SR, open and stay open, slow
+     115 SR, open and stay open, fast
+  6. Give the underneath switch an action, and the door tag number.
+     42 SR, close and stay closed, slow
+     116 SR, close and stay closed, fast
+
+Switch types and dimensions
+  FreeDoom switches are described, but they are expected to be
+  representative of any texture implemented for the name.
+  SWITCH				SIZE
+   Silver-handle switch			32x32
+     Has handle as indicator
+
+   Silver-grn-red-comm-comm switch	32x32
+     Has green and red indicators, red goes out and green turns on.
+	two indicators			8x16 @ 5,5
+
+   Silver-green-comm switch		32x32
+     Large lighted green indicator, green goes out.
+	green indicator			11x11 @ 6,6
+
+   Green-keypad switch			24x24
+     Metal with keypad, one green indicator, green turns on.
+	green indicator			9x9 @ 3,7
+
+   Red switch				17x23
+     Red rectangle with bezel, red lights up
+
+   Blue skull switch			32x32
+
+   Skull				36x38
+	Eyes light up
+	not rectangular, background will show
+
+   Gargoyle, line, satyr		34x44
+
+
+Switch textures
+   FreeDoom Textures are described, but they are expected to be
+   representative of any texture implemented for the name.
+   For each SW1, there is a SW2 with the switch activated.
+   The engine takes care of this automatically, use the SW1 textures only.
+   The offset of the switch is from the top left corner.
+  Normal switches
+   NAME		W x H		OFFSET x,y	SWITCH W x H
+    SW1BRCOM, SW1BRN1
+    		brown metal wall with silver-grn-red-comm switch
+		128x128		48,72	32x32
+    SW1STARG, SW1STONE, SW1STON2
+    		brown metal wall with silver-grn-red-comm switch
+		128x128		47,72	32x32
+    SW1BROWN	brown metal wall with silver-handle switch
+		128x128		48,72	32x32
+    SW1MET2   	brown metal, with silver-grn-red-comm switch on upper panel
+		64x128		16,19	32x32
+    SW1METAL  	gray hex metal, with green-keypad switch
+		64x128		20,68	24x24
+    SW1BRIK, SW1STON1
+    		gray large block wall with silver-grn-red-comm switch
+		64x128		16,72	32x32
+    SW1BRN2   	tan metal wall with green-keypad switch
+		64x128		20,79	24x24
+    SW1BRNGN  	greenish metal wall with green-keypad switch
+		64x128		20,80	24x24
+    SW1CMT    	grey cement wall with silver-handle switch
+		64x128		16,72	32x32
+    SW1COMM   	shiny panel with silver-grn-red-comm switch centered
+		64x72		15,18	32x32
+    SW1COMP   	dark computer, with silver-green-comm switch lower panel center
+		64x128		16,72	32x32
+    SW1DIRT   	dirt panel, with silver-grn-red-comm switch top half center
+		64x128		16,20	32x32
+    SW1MOD1   	brown and grey mod wall, with green-keypad switch
+		64x128		20,80	24x24
+    SW1EXIT   	silver panel, warning stripe, silver-green-comm switch
+		32x72		0,16	32x32
+    SW1GRAY   	gray 2 panel, with silver-green-comm switch in lower panel
+		64x128		16,70	32x32
+    SW1GRAY1  	gray 2 panel, with green-keypad in lower panel
+		64x128		19,79	24x24
+    SW1SLAD   	SLAD wall, with red switch
+		64x128		24,73	17x23
+    SW1PIPE   	pipe wall, with silver-handle switch
+		128x128		48,76	32x32
+    SW1STON6  	cracked stone, with silver-green-comm switch
+		64x128		16,72	32x32
+    SW1STRTN  	STARTAN, with silver-grn-red-comm switch
+		64x128		16,72	32x32
+    SW1TEK    	TEK panel, with green-keypad switch
+		64x128		20,80	24x24
+    SW1VINE   	vine panel, with green-keypad switch
+		64x128		20,84	24x24
+  Skull switches
+   NAME		W x H
+    SW1BLUE   	blue panel with skull
+		64x128		14,66	36x38
+    SW1WOOD   	wood panel with skull
+		64x128		14,66	36x38
+    SW1GSTON  	green stone, with skull
+		64x128		14,67	36x38
+    SW1ZIM    	green zim pattern with skull
+		64x128		16,65	36x38
+    SW1HOT    	red stone, with skull
+		64x128		13,66	36x38
+    SW1MARB   	green marble, with skull
+		64x128		13,55	36x38
+    SW1PANEL  	wood panel, with skull
+		64x128		14,64	36x38
+    SW1ROCK   	gray rock wall, with skull
+		64x128		14,66	36x38
+    SW1SKULL  	pink sloppy wall, with skull
+		64x128		14,59	38x54
+    SW1WDMET  	wood and metal, with blue skull switch
+		64x128		16,48	32x32
+    SW1GARG   	brown panel, with gargoyle
+		64x128		14,67	34x42
+    SW1LION   	brown panel, with lion
+		64x128		15,66	34x44
+    SW1SAYYR  	brown panel, with saytr
+		64x128		15,64	34x44
+    SW1SKIN   	tan with pink skin as switch, eye opens
+		64x128		2,61	60x46
+
+
+
+Lift
+  A sector that lowers to a floor, then returns to higher floor.
+  Always returns to its original sector height.
+  Can be made of multiple sectors.  All sectors will move in unison,
+  and to same level.
+
+Lift face textures
+  Lifts are tagged sectors that respond to linedef triggers to move
+  between floor levels.
+  Create a lift:
+  1. Make a sector for the lift.
+  2. Have editor make it a lift.
+  3. Leave the linedef unpegged for a normal lift.
+  4. Give the lift an appropriate lower texture.
+  5. Remove any middle texture from the lift linedefs on the sides it
+     is to be entered from.
+  6. If there are any sides it is not to be entered from, make those
+     linedefs impassable.
+  7. Arrange for switches and walkover linedefs to lower the lift.
+     It generally will go back up again automatically.
+  8. Set the lift sector height to the starting position.  If you only have
+     lower-lift linedef actions, then you must set the lift to the upper
+     position.
+
+    FreeDoom Textures are described, but they are expected to be
+    representative of any texture implemented for the name.
+	PLAT1     128x128 hydraulic lift
+
+Lift pulled up from above.
+  Make the lift, but set the walls unpegged lower so they move with the lift.
+  The moving walls must go to the ceiling.
+
+Lift with railing, fixed increments.
+  Makes a lift with border railings that move with the lift.
+  The lift can only move in 24 or 32 unit increments.
+  1. Make a lift.
+  2. Make railing (walls) around the lift and make them a lift too,
+     and give them the same sector tag.
+  3. Set your railing an appropriate height above the lift floor.
+  4. Put an appropriate lower texture on the railing, middle and upper
+     are clear.  Cannot use chain-link or MID textures.
+  4. Use the fixed movement BOOM actions, or else your railing will sink
+     into the floor upon the first use.
+    raise floor by 24, lower floor by 24
+    raise floor by 32, lower floor by 32
+
+Lift with railing.
+  Makes a lift with a railing that moves with the lift.
+  1. Make a lift.
+  2. Make railing on sides of lift only, make them a lift too, and give
+     them the same sector tag.
+     Set their height.
+  3. Make matching railings (or walls) on the lower level the exact width
+     and height of the lift railing (in the lift down position).
+     This can be done by cutting off a thin slice of railing, zeroing
+     its tag, and setting its height.
+     These provide the stops (lowest floor) for the down position of
+     the railing, and so must be at height= lowest floor + railing.
+     If they are too low, then the railings will be still be moving after
+     the lift stops, and the railings will get shorter.
+     Any floor adjacent to the railing, that is lower at the time of the
+     lift trigger, must be separated from the railing by a guard sector
+     with a floor at the height of the railing when the lift is down.
+  4. Any section of railing without a lower stop will sink to the floor
+     and disappear when the lift is down.
+     This may be used like a gate.
+     It will reappear AFTER the lift gets back to the top.
+  5. Put an appropriate lower texture on the walls, middle and upper are
+     clear.  Cannot use chain-link or MID textures.
+  6. Create switches and walkovers to trigger the lift.
+     They can use general lower lift actions.
+
+
+Elevator
+  A lift where the ceiling moves with the floor.
+
+
+
+Outdoor areas.
+  Outdoor is difficult if there are going to be any buildings that the
+  player can enter.
+  When there is a mixture of buildings and outdoor areas.
+  * Minimize the outdoor areas.
+  * Each outdoor area should only be able to see one building in each
+    direction.
+  * Block views toward your other buildings.
+  * Organize the outdoor areas so the view is away into the distance.
+
+  Any atrium, or hole in the roof, presents the same problems.
+  * Use F_SKY1 as the ceiling texture.
+  * Can see the sky.
+  * Cannot see through the hole to any other parts of the level, even when
+    they are tall enough.
+    This is the upper texture area, there is either a texture, sky, or HOM.
+
+  Any construction that cannot be entered can be made using the floor level.
+  * The sides use the lower texture.
+  * The middle texture is empty, and allows seeing other things in your
+    level over the construction.
+  * Can be walked over, going through the middle texture area.
+  * The ceiling level is the default sky level (128, 256, 512), which only
+    needs to be tall enough to see any surrounding constructions.
+    Too short and it will cut the view off short.
+
+  Any construction that can be entered (a building).
+  * Cannot see other parts of the level over the building.
+  * The only thing visible over the building is the sky.
+  * Must be made using the middle texture area to walk through.
+  * The upper texture is only usable to finish the building over the doors
+    and windows.
+  * The top of the upper texture is determined by the height of the
+    neighboring sector.
+  * The lower texture can be used for pillars that are solid all the way
+    to the top of the building, but the non-solid parts of the building
+    prevent doing anything more useful.
+  * Can get a better appearance by using the upper texture for all parts of
+    the roof edge.
+    Solid posts would then stop at the bottom of the roof edge.
+  * Put narrow outdoor sectors around the building as needed,
+    as the ceiling of these sectors controls the building roof height.
+    Put these on the SHORTER of buildings of different heights.
+
+Porch with pillars, and roof.
+  * Make the windows
+    * If the porch has windows down to the floor, then can skip this step,
+      that area can be part of the larger porch sector.
+    * Set walls around the porch.
+    * Set the wall floor to the bottom of the window,
+      set the wall ceiling to the top of the window.
+    * The top of the window is usually a few units below the porch ceiling.
+      Although it can go completely to the roof, it looks spindlely.
+    * Fill in all the upper and lower textures, and set upper and lower
+      textures unpegged.
+  * Make the posts
+    * A post is just a bit of wall that goes entirely to the bottom of the roof.
+    * Set the floor to be as high as the bottom of the ceiling, and the
+      post ceiling to the same value.
+    * There is no need of a middle texture.  For a fancy look, you could lower
+       the floor a little and put in a contrasting middle texture.
+    * Must not have F_SKY as ceiling. Give the post the same ceiling as the
+      rest of the ceiling.  Otherwise the engine will skip
+      drawing anything on the post above the ceiling.
+    * Make the upper texture of the post the same as the roof.
+      Set the texture unpegged the same as the walls, so the roof matches
+      all around.
+  * Make the roof
+    * The height of the roof is set by the sector neighbors.
+      The ones with F_SKY as ceiling will allow seeing the sky over this roof.
+    * If the neighbor sectors are too high, your roof will be too high.
+      Make a narrow sector next to the porch and set its ceiling
+      to the external height of the porch roof.
+    * Make sure all the sector neighbors have the same ceiling height.
+      Add narrow guard sectors if necessary to fix this.
+
+
+
+Exterior facade:
+  The height of exterior walls is set by the height of the sector adjacent
+  to the sidedef.  Set them as middle texture, do not use upper and
+  lower texture.
+
+Courtyard:
+  Set the ceiling to be F_SKY1.  F_SKY1 is not the actual SKY, it is a
+  special key value that means transparent so the sky shows through.
+  The height of the courtyard sector controls the height of the walls.
+  The height will also cut off the view of adjacent sectors.
+  ** If the courtyard ceiling height is the same as an adjacent floor
+  height then there will be HOM.
+
+View over building
+  To make a building edge that can be viewed over.
+  Only use this method if viewing over a corner or edge of the wall
+  is sufficient.  Otherwise it will only move the problem to another spot.
+  * Make the edge of the void space wall a sector.
+    Give the floor the height of the building.
+    Give the sides the texture of the building.
+  * Only the void space of the wall can be used, upto the edge of
+    any interior sector.
+    Move interior sectors of the building when necessary.
+  * Make the open area next to the wall higher than the building
+    (or else there will be HOM), and high enough to view any other
+    nearby constructions.
+  * Make a very narrow sector between the void space to the interior of
+    the building and the new sector wall.
+    Give it a ceiling height equal to the height of the building.
+    This prevents the void space behind it from having a middle texture
+    displayed.
+    ** There must be such a sector between every building wall and any
+    adjacent void space.
+  * The end points of these sectors should all come to the same vertex.
+    Otherwise there will be visible textures to deal with.
+
+Overhead beams in room or in open courtyard:
+  Make the room (or courtyard), then make sectors for the beams.
+  Decide on a beam.height, such as 6 or 4.
+  Set beam.ceiling = (room.ceiling - beam.height), and beam.floor = room.floor.
+  For the beam sidedefs, leave the lower and middle texture as -, set the
+  upper texture to the beam texture.
+  Set the beam.floor.texture = room.floor.texture.
+  Set the beam.ceiling.texture = beam.texture.
+  Be careful in choosing beam textures, as you need
+  a ceiling texture, and a sidedef texture that look the same.
+
+  In an open courtyard, if the beam will be visible from above,
+  then must fill in top texture using BOOM feature.
+
+
+Adjacent courtyard with different sky.
+  The ASSIGN_SKY linedef can change the sky pattern in tagged sectors.
+
+  If two adjacent sectors have different sky textures then the border is
+  very evident.  The outline of every post, fence-line, etc.,
+  will be seen in the sky.
+  Adding any kind of solid ceiling, even a thin overhead beam at the junction,
+  will cover the problem.
+  This gives upper textures that will cover the sky of the neighboring sector.
+
+
+Solid Fence
+  To make a fence where other parts of the level can be seen over it.
+  * Make solid fence as sector with floor at the top of the fence.
+  * Set the fence ceiling to be the same as the neighboring sectors.
+  * Set the fence texture (such as WOOD1) as the lower texture of both sides.
+  * Do not set the textures of the inner sidedefs.
+  * No middle or upper texture.
+  * The ceiling height of the fence (and the surrounding sectors) must be
+    equal or greater than the height of any structure
+    that needs to be seen, otherwise the view will be cut off.
+
+Chain-link fence or bars.
+  * The chain-link or bars must be the middle texture of a linedef between
+    sectors.
+  * Only the middle texture can be viewed through, and it is already used for the chain-link.  But there is a trick using offsets
+    and transparent textures.
+  * If there is no upper texture, then the sky (background) will be seen,
+    but any other structures of the level will not be seen.
+  Construction:
+  1. Set the ceiling of the adjacent sectors to a height adequate to see
+     over the fence and not clip the view.
+  2. Set a floor and a lower texture where the bottom of the fence will be.
+  3. Set the middle texture to a transparent texture.
+	MIDGRATE, MIDBARS1, MIDBARS3, MIDSPACE, etc..
+  4. Adjust the offset_y of the middle texture negative to set the
+     fence height.
+  5. Set the impassable attribute of the linedef.
+     This stops players and monsters, but allows bullets and rockets to cross.
+
+
+Railing
+  1. Make the sectors that the railing will separate
+  2. Make some small posts to hold the railing.
+  3. Set a transparent texture as the middle texture.
+	STEPTOP, STEPLAD1
+	MIDGRATE, MIDSPACE
+  4. Adjust the offset_y of the middle texture to set the railing on the posts.
+  5. Set the impassable attribute of the linedef.
+     This stops players and monsters, but allows bullets and rockets to cross.
+
+Bars
+  The transparent bars have 4 bars, on a 64 unit texture.
+  Spacing between bars = 16 units.
+  Bar width = 5 units.
+  Bewteen bar width = 11 units.
+  Offset to first bar: edge = 6 units,  center = 8 units
+  Align bar at left: offset_x = 6,  reverse side offset_x = (length - 6)
+  Align bar at right: offset_x = (length MOD 16) - 6
+	which equals -6 for all multiples of 16
+  Length where bars can align on both left and right:  (16 * i) + 5
+	which is:  5, 21, 37, 53, 69, 85, 101, 117, 133, 149, 165, 181, 197
+
+  Do not allow a view of the edge of the bars or they will be seen to be
+  paper thin.
+  Put a post on each edge if necessary, square (better) or triangular.
+  A post can be 5x5, texture = MIDBARS1, offset_x=6
+
+  Even a T across the end of the bars will help.
+  Center it on the end so it is not possible to see the thinness of the bars.
+  The larger the better, at least 4 or 5.
+  If more than 5 then use texture METAL2, or SUPPORT3, instead of MIDBARS.
+
+  Trying to put bars on both side of a thin sector does not look good.
+  It looks like two very thin sets of bars, and makes it even more obvious.
+
+
+Boom Generalized actions
+  Combination of a base code and option bits,
+  by OR of HEX numbers, or ADD DEC numbers.
+  Base Required, select one
+  HEX	  DEC
+  6000	24576	Generalized Floor action
+  4000  16384	Generalized Ceiling action
+  3C00	15360	Generalized Door action
+  3800	14336	Generalized Locked Door action
+  3400	13312	Generalized Lift action
+  3000	12288	Generalized Stairs action
+  2F80	12160	Generalized Crusher action
+
+Some Boom generalized options
+  Trigger type
+   HEX	  DEC
+     0	    0	Walkover, once
+     1	    1	Walkover, repeatable
+     2	    2	Switch, once
+     3	    3	Switch, repeatable
+     4	    4	Gun-sense, once
+     5	    5	Gun-sense, repeatable
+     6	    6	Push, once
+     7	    7	Push, repeatable
+
+Boom Generalized Door
+  3C00	15360	Generalized Door action
+  + Plain Door Function
+  + Door Delay
+  + Speed
+  + Monster trigger
+  + Trigger type
+
+  Plain Door Function
+  HEX	  DEC
+     0      0	Open, wait, close
+  0020	   32	Open, and stay open	
+  0040     64	Close, wait, then open
+  0060     96	Close, and stay closed
+
+  Door Delay
+     0	    0	1 sec
+  0100	  256	4 sec
+  0200	  512	9 sec
+  0300	  768	30 sec
+
+  Door Monster trigger
+  0080    128   Monster can trigger door
+
+Boom Generalized Locked Door
+  3800	14336	Generalized Locked Door action
+  + Locked Door Function
+  + Key needed
+  + Trigger type
+
+  Locked Door Function
+  HEX	  DEC
+     0      0	Open, wait, close
+  0020	   32	Open, and stay open	
+
+  Key by color only
+  0200	  512	Both Skull and Card keys work
+    This is already in the table below.
+  
+  Key needed	(w/base) (w/base/PR)
+     0	    0	14336	14343	Any key
+  0040	   64	14440	14447	Red Card
+  0080	  128	14464	14471	Blue Card
+  00C0	  192	14528	14535	Yellow Card
+  0100	  256	14592	14599	Red Skull
+  0140	  320	14656	14663	Blue Skull
+  0180	  384	14720	14727	Yellow Skull
+  01C0	  448	14784	14791	All 6 keys are needed
+  0200	  512	14848	14855	Any key
+  0240	  576	14912	14919	Red Card or Skull
+  0280	  640	14976	14983	Blue Card or Skull
+  02C0	  704	15040	15047	Yellow Card or Skull
+  0300	  768	15104	15111	Red Card or Skull
+  0340	  832	15168	15175	Blue Card or Skull
+  0380	  896	15232	15239	Yellow Card or Skull
+  03C0	  960	15296	15303	All 3 color keys are needed
+
+  The Boom reference mentions locked doors having delay, and Close
+  door functions, but those functions are not present on locked doors.
+  Monsters cannot trigger the door.
+
+Boom Generalized Ceiling
+  HEX	  DEC
+  4000  16384	Generalized Ceiling action
+  + Ceiling target level
+  + Floor/ceiling texture copy option
+  + Floor/ceiling model source
+  + Crusher option
+  + Speed
+  + Trigger type
+
+  Ceiling Target level
+  HEX	  DEC
+     0	    0	HnC, highest neighbor ceiling
+  0080	  128	LnC, lowest neighbor ceiling
+  0100	  256	NnC, next neighbor ceiling
+  0180	  384	HnF, highest neighbor floor
+  0200	  512	F, floor this sector
+  0280	  640	sT, by height of shortest lower texture
+  0300	  768	24, by 24 units
+  0380	  896	32, by 32 units
+
+
+Boom Generalized Floor
+  HEX	  DEC
+  6000	24576	Generalized Floor action
+  + Floor target level
+  + Floor/ceiling texture copy option
+  + Floor/ceiling model source
+  + Crusher option
+  + Speed
+  + Trigger type
+
+  Floor Target level
+  HEX	  DEC
+     0	    0	HnF, highest neighbor floor
+  0080	  128	LnF, lowest neighbor floor
+  0100	  256	NnF, next neighbor floor
+  0180	  384	LnC, lowest neighbor ceiling
+  0200	  512	C, ceiling this sector
+  0280	  640	sT, by height of shortest lower texture
+  0300	  768	24, by 24 units
+  0380	  896	32, by 32 units
+
+
+  Floor/ceiling texture copy option
+  HEX	  DEC
+  0400	 1024	Tx0, copy the floor texture from the model sector,
+  		then erase this type to 0 so the
+		action cannot be repeated.
+  0800	 2048	Tx, copy the floor texture from the model sector, repeatable.
+  0C00	 3072	TxTy, copy the floor texture from the model sector,
+  		then copy the type from the model sector, so this action
+		cannot be repeated, but something else wierd could be done.
+
+  Floor/ceiling model source
+     0	    0	Trigger sidedef_1 is model sector.
+  0020	   32	Lowest numbered 2s linedef of target sector,
+  		use sector from sidedef_1 as model sector.
+
+  Crusher option
+  1000	 4096	Floor/ceiling acts as crusher
+
+  Direction
+     0	    0	DOWN
+  0040	   64	UP
+
+  Speed
+     0	    0	SLOW
+  0008	   12	NORMAL speed
+  0010	   16	FAST
+  0018     24	TURBO
+
+  Trigger type
+     0	    0	Walkover, once
+     1	    1	Walkover, repeatable
+     2	    2	Switch, once
+     3	    3	Switch, repeatable
+     4	    4	Gun-sense, once
+     5	    5	Gun-sense, repeatable
+     6	    6	Push, once
+     7	    7	Push, repeatable
+
+
+Boom Generalized Lift
+  HEX	  DEC
+  3400  13312	Generalized Lift action
+  + Lift target level
+  + Lift Delay
+  + Speed
+  + Monster trigger
+  + Trigger type
+
+  Lift Target level
+     0	    0	LnF, lowest neighbor floor
+  0080	  128	NnF, nearest neighbor floor
+  0100	  256	LnC, lowest neighbor ceiling
+  0180	  384	Perpetual LnF to HnF,
+		lowest neighbor floor to highest neighbor floor
+  Lift Delay
+     0	    0	1 sec
+  0040	   64	3 sec
+  0080	  128	5 sec
+  00C0	  192	10 sec
+
+  Speed
+     0	    0	SLOW
+  0008	   12	NORMAL speed
+  0010	   16	FAST
+  0018     24	TURBO
+
+  Monster trigger
+  0020     32   Monster can trigger lift
+
+Boom Generalized Crusher
+  2F80	12160	Generalized Crusher action
+  + Silent option
+  + Speed
+  + Monster trigger
+  + Trigger type
+
+  Silent option
+  0040	   64   Silent crusher operation
+
+  Speed
+     0	    0	SLOW
+  0008	   12	NORMAL speed
+  0010	   16	FAST
+  0018     24	TURBO
+
+  Monster trigger
+  0020     32   Monster can trigger crusher
+
+Boom Generalized Stairs
+  HEX	  DEC
+  3000	12288	Generalized Stairs action
+  + Stair Direction
+  + Stair step size
+  + Ignore texture differences
+  + Speed
+  + Monster trigger
+  + Trigger type
+
+  Stair Direction
+     0	    0	DOWN
+  0100	  256	UP
+
+  Stair step size
+     0	    0	4
+  0040	   64	8
+  0080	  128	16
+  00C0	  192	32
+
+  Speed
+     0	    0	SLOW
+  0008	   12	NORMAL speed
+  0010	   16	FAST
+  0018     24	TURBO
+
+  Monster trigger
+  0020     32   Monster can trigger lift
+  Ignore texture differences
+  0200    512   Do not stop when encountering a different texture
+
+
+Boom property transfer linedef
+  Linedef type 242.
+  * Creates a false ceiling and floor in the tagged sector.
+  * Make sure that sidedef_1 of the linedef is the control sector.
+  * Textures on this linedef type are colormaps. They will be ignored if
+    they are the wrong size for a colormap (34x256=8704).
+  Missing colormap
+  * A missing colormap invokes using the default normal COLORMAP.
+  * This looks like a missing texture to most editors.
+  * Can give it dummy textures of size 128x128, which should be invalid as
+    colormaps and thus ignored.
+  * For some editors that check for missing textures, can make the linedef
+    within the control sector instead of on its edge.
+  * Editors will bother it less if it has the 2s attribute, and a second
+    sidedef.
+
+  Create the actual sector in the level.
+  * This will define the limits of movement of players and monsters.
+  * The actual sector floor and ceiling heights will be used for all
+    collision detection, and for door and lift stopping points.
+  Create control sector outside the level.
+  * This will an give an additional ceiling and floor, ceiling and floor
+    textures, light levels and colormaps.
+  * The control sector floor and ceiling heights will be used for all
+    texture display.
+  Use an existing sector as the control sector.
+  * Make one the border lines the control linedef, choosing one with
+    sidedef_1 having the desired sector.
+
+  Views relative to the control sector:
+  * Outside the actual sector, and outside of any sector with the same
+    tag number.
+    * Appears as normal but with the control sector ceiling and floor heights.
+    * The actual sector floor texture, ceiling texture, and light level are
+      used.
+    * The control sector floor and ceiling level are used
+        * floor and ceiling display height
+        * determine middle, upper, and lower texture boundaries
+    * If the control sector has a middle texture, then it is used as a colormap
+      on those textures of sidedefs in the actual sector.
+  * When moving horizontally between outside actual sector, and actual sector
+    middle area.
+    * There is no change in the view, nor any change in the view
+      of other sectors with the same tag.
+  * When moving horizontally between outside actual sector, and actual sector
+    upper or lower area.
+    * The view of the actual sector instantly changes greatly, as when
+      raising above the water line.
+      The view of any other sectors with the same tag also changes similarily.
+  * Within the actual sector middle area, between the control sector ceiling
+    and floor.
+    * Appears as normal but with the control sector ceiling and floor heights.
+    * The actual sector floor texture, ceiling texture, and light level are
+      used.
+    * The control sector floor and ceiling level are used
+        * floor and ceiling display height
+        * determine middle, upper, and lower texture boundaries
+    * If the control sector has a middle texture, then it is used as a
+      colormap on those textures of sidedefs in the actual sector.
+  * In the actual sector upper area, above the control sector ceiling.
+    * The control sector floor texture, ceiling texture, and light level are
+      used.
+    * The control sector ceiling level is used for the floor, and the actual
+      ceiling level for the ceiling.
+        * floor and ceiling display height
+        * determine middle, upper, and lower texture boundaries
+    * If the control sector has an upper texture, then it is used as a colormap on those textures of sidedefs
+      in the actual sector.
+  * In the actual sector lower area, below the control sector floor.
+    * The control sector floor texture, ceiling texture, and light level
+      are used.
+    * The control sector ceiling level is used for the floor, and the actual
+      ceiling level for the ceiling.
+        * floor and ceiling display height
+        * determine middle, upper, and lower texture boundaries
+    * If the control sector has an lower texture, then it is used as a
+      colormap on those textures of sidedefs in the actual sector.
+
+  Effects seen by viewer:
+  * The control sector ceiling and floor levels determine the level of the
+    false ceiling and floor displayed.
+    The floor and ceiling are displayed at those levels even when they are
+    above or below the actual ceiling or floor.
+  * The currently displayed floor and ceiling levels also affect the middle,
+    lower, and upper textures displayed.
+  * For 1s walls, the same middle texture appears on the wall aligned to the
+    view floor and ceiling, for all view levels.
+    * Under water the same wall pattern appears now aligned to the top of
+      the water.
+      To hide this, do not use a texture with a vertically distinct pattern,
+      horizontal lines, etc..
+    * Using unpegged lower does not help, it just changes both alignments to
+      lower.
+  * For 2s walls, the same texture can appear on the wall aligned to the
+    view floor and ceiling, for all view levels.
+    * The normal upper, middle, and lower texture alignments are applied
+      independently of the view level, without taking into account any of
+      the other view levels, nor the actual ceiling position.
+      To hide this, do not use a texture with a vertically distinct pattern,
+      horizontal lines, etc..
+  * The middle texture does not tile normally.
+    * It appears once, and is positionable by offset like it was a
+      transparent texture, even when it is not.
+    * It is aligned to the actual middle texture, from all views.
+  * When the viewer moves into or out of a lower level, or an upper level,
+    then all upper and lower textures in all sectors with that same
+    tag number also change their display at the same time.
+    This causes:
+	* Passages made up of multiple sectors to display like one sector.
+	* Other non-adjacent sectors with the same tag to flip outer textures
+	  up and down like instant window shades.
+          If the viewer rises above the control ceiling, viewing neighboring
+	  sectors of the same tag, their upper textures will
+          flip from the control ceiling level to the actual ceiling.
+          If the viewer sinks below the control floor, viewing neighboring
+	  sectors of the same tag, their lower textures will
+          flip from the control floor level to the actual floor.
+  * When adjacent sectors that do not have the same tag number, have access
+    to upper or lower area, then can observe strange effects.
+	* Upper and lower textures that can be walked through.
+	* Sudden changes in view of other sectors with same tag.
+    To prevent this:
+	* Adjacent floors should be higher than the control sector floor.
+	* Adjacent ceilings should be lower than the control sector ceiling.
+  * Whenever the control sector floor is lower than the actual sector floor:
+    a. The actual floor will be invisible, but solid.
+       It will support walkers, act as a step, and will block moving into
+       the sector.
+    b. The floor seen will be at the control sector floor level.
+    c. It will display the actual sector floor texture.
+  * Whenever the control sector ceiling is higher than the actual sector
+    ceiling:
+    a. The actual ceiling will be invisible, but solid.
+       Collisions with the actual ceiling still occur, it can block moving
+       into the sector, and it can still crush.
+    b. The visible ceiling seen will be at the control sector ceiling level.
+    c. It will display the actual sector ceiling texture.
+  * When the control floor is
+    a. Higher than the neighbor sector floor.
+       * A lower texture will be seen from outside the actual sector, and it
+         will be up to the control sector floor, no matter where it is in
+	 relation to the actual floor.
+       * If the lower texture is missing then HOM.
+    b. Lower than or the same as the neighbor sector floor.
+       * A lower texture will be seen within the actual sector, limited by
+         the area the viewer is within.
+  * When the actual floor is higher than the neighbor sector floor.
+    There will be a lower texture seen from outside the actual sector, and
+    it will be upto the control sector floor, no matter where it is.
+  * Whenever the control sector is a door or a lift, it will create an
+    identical illusion of a door or lift in the actual sector,
+    but they can be walked through.
+  * If the control sector is a crusher then the visible ceiling will follow
+    the crusher ceiling.
+
+
+Actual sector with F_SKY1 as the ceiling.
+  * The visible ceiling in the middle section will display sky.
+  * The actual ceiling will display the control sector ceiling, which should
+    not be F_SKY1.
+    The actual ceiling should be made very high to hide this.
+  * All upper textures inside the actual sector will see sky, when seen from
+    inside the sector or from outside it.
+  * Missing outside upper textures display transparent like middle textures.
+    This allows a view into the sector even when the control ceiling is low.
+    If the control ceiling meets the neighbor floor then they display HOM.
+  * When the control sector is a door and the door closes, missing upper
+    textures (inside and outside) display HOM in spite of having
+    F_SKY1 ceiling.
+    * Expect the same effect for any other movable control sector.
+    * This occurs where the control sector ceiling meets or goes below
+      a neighbor sector floor.
+  * Otherwise outside upper textures display normally.
+  * Low control sector ceilings will make the upper textures display
+    sky low enough to block the view of valid neighbor sectors.
+
+
+Problems with linedef type 242:
+  * Missing upper and lower textures will display HOM.
+    The actual sector heights do not determine which are missing.
+    The control sector must also be considered.
+  * A missing lower or upper texture can easily look like a failure of the
+    linedef, and you can end up seeing completely through everything.
+    Make sure these textures are set when you are having problems.
+  * When the control sector ceiling meets or goes below a neighbor sector's
+    floor, the display rules change radically.
+  * Do not use F_SKY1 as the control sector ceiling.
+    * F_SKY1 causes HOM when used as a fake ceiling.
+    * When under the control sector floor, it causes the control sector floor
+      to appear everywhere.
+  * Do not use F_SKY1 as the control sector floor.
+    * When over the control sector ceiling, it causes the control sector
+      ceiling to appear everywhere.
+  * Do not use in actual sector that uses F_SKY1.
+    * The control ceiling can block the view of things of interest in a
+      neighboring sectors.
+    * Will display upper textures and HOM in the sky.
+    * The F_SKY1 visual effects on the upper texture will be overridden by
+      the control sector, which either will display upper textures that
+      are not wanted, or HOM.
+    * The F_SKY1 has to be in the actual sector because it also affects the
+      physical properties of the sector.
+      The control sector ceiling will be displayed instead.
+      F_SKY1 cannot be used in the control sector because of the
+      bad side effects.
+
+
+Water pool, pond, river, etc..
+  Water pool, with water level, with a separate view from below the water.
+  Same effect with nukage, but substitute nukage texture and nukage colormaps.
+  1. Get a sector tag number for the water effect.
+  2. Create a control sector outside the playing area, for the water effect.
+     a. ceiling level = actual ceiling level
+     b. floor level = water level
+     c. ceiling texture =  FWATER1 (as seen from below water)
+			(NUKAGE1)
+     d. floor texture = actual floor texture
+			usually MFLR8_3 which has a nice pattern
+  3. Set a linedef of the control sector with type 242, and the sector tag.
+     Make sure that sidedef_1 of the linedef is the control sector.
+     * Textures on this linedef type are colormaps, so do not give it any
+       default textures.
+       (It will ignore textures that are not colormap size, so you end
+       up giving it a texture to shut up the editor)
+     * For some editors that check for missing textures, it is easier to make
+       the linedef within the control sector instead of on its edge.
+     * Editors will bother it less if it has the 2s attribute, and a second
+       sidedef.
+     a. middle texture = none
+     b. upper texture = none
+     c. lower texture = WATERMAP
+			(NUKEMAP)
+	How to set this is a problem for many editors that do not know the
+	colormap names.
+	This colormap is not absolutely necessary, it just changes the
+	colors when underwater.
+  4. Set a parent bathtub sector for the water.  Split off all other
+     bathtub sectors from it.
+     Give the parent bathtub sector the sector tag number.
+     a. ceiling level = actual ceiling level
+     b. floor level = actual floor level
+     c. ceiling texture =  actual ceiling texture
+     d. floor texture = FWATER1 (as seen from above water)
+			(NUKAGE1)
+  5. Create actual sectors for the bathtub that contains the water, by
+     splitting the parent bathtub sector.
+     The bathtub can have multiple sectors sharing the same tag number and
+     control sector.
+     The sectors adjacent the bathtub need to have a floor higher than the
+     water level, or else there will be strange effects.  One strange effect
+     is the appearance of a lower texture that can be walked through.
+  6. Try to keep the ceiling level constant over the pool.  If there are any
+     differing ceiling levels then each combination must have its own control
+     sector and its own sector tag number.
+     * Another control sector will be needed for each unique combination of:
+	- water or nukage type
+	- water level
+	- ceiling level
+	- floor texture (under the water)
+
+
+Box or building with fake roof.
+  Use the deep-water linedef to put a fake roof on a building or box.
+  This is necessary when the floor and ceiling are already used, such as an
+  outdoor scene where looking over the top of the box is desired.
+  
+  Fake ceiling as roof:
+	** The expected roof does not appear.
+	Set the actual sector ceiling to F_SKY.
+	Set the control sector
+		floor = actual floor
+		ceiling = 1 higher than any adjacent sector floor
+			(top of the box).
+		(If this is not done, then there will be HOM in the sky)
+	Set the middle textures of the box by adjusting the offsets.
+	They will float in the sky otherwise.
+  Fake floor as roof:
+	** The wall textures will become transparent and the box will
+	   become see-through.
+	** The expected roof will appear.
+	Set the actual sector ceiling to F_SKY.
+	Set the control sector
+		floor = 1 higher than any adjacent sector floor
+			(top of the box).
+		(If this is not done, then there will be HOM in the sky)
+		ceiling = actual ceiling
+	Set the middle textures of the box by adjusting the offsets.
+	They will float in the sky otherwise.
+
+
+
+
+Stepping stones
+  TRICKS has a description of stepping stones.
+  The BOOM ref has a general descriptions of property transfer linedefs.
+
+
+Stepping stones isolated.
+  To make stepping stones rise out of the nukage (or other damaging sector)
+  and become walkable, where the stones are not touching any other sectors.
+  The floor type of the stones will change to match the sector next to the
+  switch or walkover trigger.
+  
+  Before the stepping stones are raised:
+  * Will be the same height as the surrounding damaging sector.
+  * Will have the texture and type as originally set
+    (to match the damaging sector).
+  
+  After the stepping stones are raised:
+  * Will have type, damaging, of the adjacent target sector (normal floor).
+  * Will be the target height, above the damaging sector.
+  * Will have the target floor texture.
+
+  Choose a linedef action (Model sector is trigger sidedef_1).
+		   59		W1, One shot, rising stone,
+		   		model sector from trigger, slow speed,
+				by 24 units.
+				Set all stones 24 units below desired
+				end height.
+		  160		S1, One shot, rising stone,
+		  		model sector from trigger, slow speed,
+				by 24 units.
+				Set all stones 24 units below desired
+				end height.
+  Boom generalized linedef action (a few of many)
+	6440H	25664		W1, One shot, rising stone,
+				model sector from trigger, slow speed.
+				End height will be level with damaging sector.
+	6442H	25666		S1, One shot, rising stone,
+				model sector from trigger, slow speed.
+				End height will be level with damaging sector.
+	6448H	25676		W1, One shot, rising stone,
+				model sector from trigger, normal speed.
+				End height will be level with damaging sector.
+	67C0H	26560		W1, One shot, rising stone,
+				model sector from trigger, slow speed,
+				by 32 units.
+				Set all stones 32 units below desired
+				end height.
+	67C2H	26562		S1, One shot, rising stone,
+				model sector from trigger, slow speed,
+				by 32 units.
+				Set all stones 32 units below desired
+				end height.
+
+  Construction:
+  1. Make the surrounding damaging sector.
+  2. Form a simple walkway sector, that all stones will be cut from.
+     By setting properties to this sector first, and then dividing it into
+     individual stones, it saves having to set each stone individually.
+     An alternative is to use editor group functions to set all the stone
+     properties at the same time.
+  3. Give your stones the correct edge textures.
+  4. Give your stones a floor texture, and a ceiling texture, that matches the
+     damaging sector.
+  5. Give your stone sectors a tag number, to be used by the trigger switch.
+  6. Create a switch or walkover with the tag number of the stepping stones.
+     Make sure the sector on the sidedef_1 side of the switch is what you
+     want for the stones.
+  7. Leave the stones at the floor height of the damaging sector, so they
+     are not visible.
+  8. If the stone floor height is set below the damaging sector, the stones
+     will be visible as depressions in the damaging sector.
+     All stones of the same height will appear at the same time.
+     Deeper stones will appear later.
+
+
+Stepping stone sequential walkway.
+  These stepping stones rise sequentially out of the damaging sector forming
+  a walkway.
+  Transfer property can only be from sectors that are already at the
+  target level at the trigger time.
+
+  Choose a linedef action
+  (Model sector is lowest numbered adjacent sector in each tagged sector).
+		78,241,240,239	Do not move up nor down, just transfer.
+		177,159,84,37	Down slow to lowest neighbor floor,
+				model sector from neighbor.
+  Boom generalized linedef action (a few of many)
+	6460H	25696		W1, One shot, rising stone,
+				model sector from neighbor, slow speed.
+				End height will be highest neighbor floor.
+	6468H	25704		W1, One shot, rising stone,
+				model sector from neighbor, normal speed.
+				End height will be level with damaging sector.
+	67E0H	26592		W1, One shot, rising stone,
+				model sector from neighbor, slow speed,
+				by 32 units.
+				Set all stones 32 units below desired
+				end height.
+	6462H   25698		S1, One shot, rising stone,
+				model sector from neighbor, slow speed.
+				End height will be highest neighbor floor.
+	6863H   26723		SR, repeatable, rising stone,
+				model sector from neighbor, slow speed.
+				End height will be highest neighbor floor.
+
+  Problems:
+  * The complications are so bad with the copy neighbor action that there
+    are few ways to successfully use it.
+    End up with the end stones at shore height, but all the center stones
+    stop at fluid height and get wrong texture.
+  * The target height of the floor raise and floor down linedef actions is
+    determined at the start of movement.
+    * An adjacent stepping stone that also is moving, is considered at its
+      current height.
+    * This means that the height of the first edge of the stepping stones,
+      WILL NOT transfer to all the stepping stones.
+    * Only the two end stones will be above the fluid level.
+  * To have all stepping stones triggered by a single trigger, and raise
+    above the surrounding fluid, then there must be a reference sector
+    adjacent to every stepping stone
+    (to set the target level for that stone).
+    * They must be in position before the trigger.
+    * They do not have to be all at the same level.
+    * They can be very small (but will be very visible).
+    * Two stepping stones can share a reference sector, but they will behave
+      as one sector.
+    * A shared reference sector can be split so it gives a different height
+      to the adjacent stepping stones.
+    * They can be hidden among similar tiny peaks sticking out of the fluid.
+    * The reference sector could supply the floor texture too, and thus the
+      order of rising is unimportant.
+  * Stepping stones that are set below the level of the fluid will show as
+    depressions in the fluid.
+    Attempting to hide the depressions using Deep-water action will result
+    in invisible stepping stones.
+    * Because of this, stepping stones usually start at the height of the
+      surrounding fluid.
+    * Side textures of the sunken stones are very visible.
+    * The holes in the fluid need side textures.
+  * To have a stepping stone copy the height or texture of the previous
+    stepping stone, it must not be triggered before the previous stone
+    is done moving.
+  * To have a stepping stone copy the texture of the previous stepping stone
+    * It must be at the target level at the time of the trigger.
+    * Even if another stone arrives to the target level first,
+      it is not considered.
+    * The lowest numbered linedef (the first found) is used.
+    * It can be sidedef_1 or sidedef_2, whichever is on the other side of
+      the affected sector.
+  * The texture copy takes effect when the stone stops moving.
+  * Side textures do not change, and are very visible whenever the
+    stone is above or below the fluid.
+
+
+  The lowest numbered linedef with adjacent sector at the target height,
+  at the time of the trigger, will be used for type and texture copy.
+    * Using an editor with a swap id number function.
+      * For each stepping stone, in order of sequence.
+        Find lowest number linedef in all edges of this stepping stone,
+	and all that follow it.
+        Swap the id number with linedef edge adjacent to previous
+	stepping stone.
+    * To remove a low number linedef split the edge linedef into two linedef.
+      One segment will be the original low number, and a new segment with
+      a new higher linedef number.
+      Remove the low numbered linedef of the two and stretch the high
+      numbered linedef to span the original linedef.
+      A simple method is to move the new vertex onto the other end of
+      the undesired linedef.
+
+  Construction
+  1. Make your damaging sector, (or it may just be a deep sector).
+  2. Form a simple rectangular walkway sector across the damaging sector
+  3. Give the rectangular walkway the correct edge textures
+  4. Leave the walkway with the floor texture, and ceiling texture, that
+     matches the damaging sector.
+  5. Give the walkway a sector tag for the switch that will operate it.
+  6. Decide how many steps and where they will be.
+  7. Cut the walkway into individual stones in the order that they will rise.
+  9. Create a walkover trigger on the first stepping stone edge, that
+     raises the second stone, using a new tag number.
+     The second stone will copy texture from the first.
+     Repeat for however many sequences are desired.
+  10. For each stepping stone that is triggered when there is no other
+     stone already risen adjacent to it
+     * Create an adjacent reference sector that determines the target
+       height and texture.
+     * Otherwise it will stop at the height of the damaging sector,
+       and keep its texture.
+
+
+
+Sinking stepping stones
+  As the player steps on the stones they slowly sink out from under them.
+  Each stone acts independently.
+  1. Make stepping stones
+  2. For each stepping stone
+     a. Give each stone sector a different tag number
+     b. Make all the linedef around the stone an action on that stone's
+        tag number.
+        Action 37: W1 Floor down slow to LnF, copy floor texture,
+		   copy sector type.
+     c. Set the stone height above the surrounding damaging sector.
+        Higher gives more time.
+
+
+
+Computer equipment
+  * The computer textures can be used as wall textures, but that is not the
+    best use.
+  * The textures are made up of patches that are best used as sides of a
+    computer box.
+  * Select the part of the texture you want to appear, and set the linedef
+    length, offset_x, and offset_y, and sector height.
+  * Use the normal offset_x,y when putting a panel on the wall.
+  * Use the normal offset_x,y when making a computer on the floor.
+  * Use the lower_unpegged offset_x,y when making a computer on the floor,
+    or under a window, with lower unpegged.
+
+						Normal		Lower_unpegged
+  Texture  Part		length x height		offset_x,y	offset_x,y
+On silver
+  COMPSTA1, COMPSTA2	128x128
+	monitor 1	56x46			0,0		0,-82
+	monitor 2	34x46			56,0		56,-82
+	monitor 3,4	36x46			92,0		92,-82
+			40x46			90,0		90,-82
+	monitor 3	36x24			92,0		92,-104
+	monitor 4	36x22			92,24		92,-82
+On white
+  COMPUTE1		128x128
+	control		128x64			0,0		0,64
+	indicators	128x64			0,64		0,0
+On gray
+  COMP2			256x128
+	large monitor	64x64			128,0		128,64
+	med monitor	64x64			0,64		0,0
+	small monitor	64x64			64,64		64,0
+	tiny monitor	64x64			192,64		192,0
+	ind. 1		64x64			0,0		0,64
+	ind. 2		64x64			64,0		64,64
+	ind. 3		64x64			192,0		192,64
+	ind. 4		64x64			192,64		192,0
+  COMPTALL		256x128
+	narrow grill	32x64			0,0		0,64
+	med grill	64x64			96,0		96,64
+	large grill	64x64			64,64		64,0
+  COMPUTE2		256x56
+	pane1 1		64x56			0,0		0,0
+	panel 2		64x56			64,0		64,0
+	panel 3		64x56			128,0		128,0
+	panel 4		64x56			192,0		192,0
+  COMPUTE3
+  	gray/STARTAN	128x128
+	comp panel	128x64			0,0		0,64
+  COMPWERD
+  	guts		64x64			0,0  0,64	0,64  0,0
+  COMPSPAN
+  	gray side	32x128
+  COMPTILE
+  	gray/blue side	128x128
+  COMPBLUE
+  	blue panel	64x128
+  COMPOHSO
+  	blue lines	128x128
+		
+Computer Flats
+  CEIL4_1	blue speckle
+  CEIL4_2	blue grid
+  CEIL4_3	blue grid circle
+  CEIL5_1	gray
+  FLAT1		gray
+  FLAT14	blue
+  FLAT22	silver, blue circle
+  FLAT23	silver
+  COMP01	white, two rectangles
+  CONS1_1	console, small green screen (keyboard north)
+  CONS1_5	console, small green screen (keyboard south)
+  CONS1_7	console, small green screen (keyboard west)
+  CONS1_9	console, small green screen (keyboard east)
+
+
+  To make a computer unit.
+  1. Make a sector 64x64, 128x64, or longer.
+     Long and rectangular is best.  Can have L and T shaped units too.
+  2. Make the floor 64 units high.
+     If you want a tall unit, then use 128, but you will be limited in textures
+  3. Give the sector the same ceiling as the rest of the room, but a floor that
+     is the color of the computer (silver, white, blue, or gray)
+  4. For each side choose a texture, or texture portion, from the above tables.
+     * Position the textures using offset_x and offset_y.
+     * Put the monitors on the side facing the people, and the grills on the
+       backside.
+     * Real computers are grills and plain panels on three sides.
+     * Make the the backside a grill and then divide it into 64 unit segments.
+
+
+Teleport Line-to-sector
+
+  Problems:
+  * There must be a teleport dest object in the sector with the sector
+    tag number.
+  * There can be more than one sector area with the same sector tag number.
+  * Only the first found target will ever be used.
+
+Teleport Line-to-line
+  Boom teleport types
+  * Teleport to first line found (lowest number) that has same tag as
+    the teleport line.
+  * W1 or WR only.
+  * Preserve orientation, or reverse orientation (Rev).
+  * Monsters and Player (MP), or just monsters (M).
+	244	WR, MP
+	263	WR, MP, Rev
+	267	WR, M
+	265	WR, M, Rev
+	243	W1, MP
+	262	W1, MP, Rev
+	266	W1, M
+	264	W1, M, Rev
+
+  Problems:
+  * Do not split lines that are line-to-line teleport.
+    It will very likely use the other half of the split teleport line as the
+    destination.
+    Solutions:
+        * Different tag numbers for each teleport line segment.
+	* Swap linedef id numbers until the dest line you want has the
+	  lowest number.
+  * Do not put teleport lines too close to a wall for a player or monster
+    to fit.
+  * Cannot enter a teleport line that is the face of a wall.
+    Must be > 16 units.
+  * Can exit a teleport line that is the face of a wall, if are going fast
+    enough.
+  * When exit teleport line is too close to wall, the traveler may get stuck.
+    Can walk without getting stuck if > 16 units.
+  * For monsters (demon, cacodemon) to go through teleport line, then it must
+    32 units from wall or more.
+
+
+
+
+Silent teleport
+  When the level needs to have a secret passageway cross over another
+  passageway, one way is to use a Boom line-to-line teleport to move the
+  player without them noticing.
+  
+  There are several problems in using this method
+  * The player may notice a sudden change in view if it is not identical.
+  * The player may turn around just after going through the teleport, and
+    could see a dead-end where they came from.
+  * Things in the passageway will reveal the teleport, because they disappear,
+    appear, or change, when the player teleports.
+    * Monsters and other players.
+    * Objects that can be picked up.
+    * Shot marks, and splats on the walls.
+
+  Solutions:
+  * Put the teleport at a zig in the passageway. Put the teleport line in the
+    middle of the zig.
+    * At such a spot the forward view is limited.
+    * The player will disappear around the corner from either direction,
+      which agrees with what any cooperative player might see.
+    * Put the teleport at a vertical change in height.  Put the teleport line
+      in the middle of the ladder or steps.
+      At such a spot the forward view is limited.
+      The upward view of other players is limited in Doom so they cannot see
+      much.  If the passageway is low they will not be able to see the
+      teleport at all.
+
+  Construction
+  1. Make the passageway up to the point where it must cross another.
+     * There will be a part missing where it crosses the other passageway.
+     * Make it so there is not much length that is visible, and reduced light
+       will help.
+     * Make it hard for monsters to enter, because if there are any when the
+       player goes through it they will suddenly disappear when the player
+       teleports to the other side.
+  2. Make an absolutely identical passageway off to the side of the level,
+     but including the missing part.
+  3. Pick a teleport point along the passageway.
+     It must be far, or around the corner from the dead-end, or else the
+     player will see it before they teleport, and the view will suddenly
+     change.
+  4. At the teleport point put a linedef trigger across the passageway,
+     indentical in both.
+     type = Boom teleport line type
+     tag = same as other teleport line.
+     Flip the linedef around so sidedef_1 is toward the side the player will
+     enter from.
+     The teleport is from the sidedef_1 side of the one teleport line, to
+     the sidedef_1 side of the other teleport line.
+  5. Put a second teleport line on the other end of the copy passagemway.
+  6. Decorate the passageway and its copy with identical fixed objects, but no
+     monsters, and no pickup objects, and no barrels.  There must be nothing
+     that can change.
+
+
+
+Scrollers
+
+Simple scrollers
+  Only affect the one wall.
+  255		scroll sidedef_1,  offset_x= horz speed, offset_y= vert speed
+   48		scroll sidedef_1,  left @ 1
+   85		scroll sidedef_1,  right @ 1
+
+Tagged scrollers
+  Scroller linedef affect all that carry the same tag.
+  Some affect ceilings, some floors, and some walls.
+
+  Speed control methods:
+    * Fixed rate
+	The movement is in the direction of the linedef,
+	at a speed dependent upon the linedef length.
+	Speed = ( 1 unit per frame / 32 ) * length.
+	      = length (units/sec)
+    * Displacement
+	The movement is in the direction of the linedef.  The movement is by
+	the amount of height change (divided by 32) in the sidedef_1 sector.
+	Speed = 0
+        Displacement = length * height_change / 32
+        Multiple linedef on the same control sector generate synchronized
+	ceiling, floor, and wall scrolling.
+    * Variable rate
+	The movement is in the direction of the linedef, at a speed dependent
+	upon the height change (divided by 32) in sidedef_1 sector.
+	Speed = (1 unit per frame / 32) * length * height_change.
+ 	      = length * height_change (units/sec)
+        Multiple linedef on the same control sector generate synchronized
+	ceiling, floor, and wall scrolling.
+
+  TYPE		TARGET		CONTROL
+  250		ceiling		fixed
+  251		floor		fixed
+  252		objects		fixed
+  253		floor,objects	fixed
+  254		wall		fixed
+  245		ceiling		displacement
+  246		floor		displacement
+  247		objects		displacement
+  248		floor,objects	displacement
+  249		wall		displacement
+  214		ceiling		variable
+  215		floor		variable
+  216		objects		variable
+  217		floor,objects	variable
+  218		wall		variable
+
+
+  254,249,218  Scroll wall texture
+    * The tag of the linedef determines the walls affected.
+    * Only the sidedef_1 texture scrolls.
+    * The scrolling effect upon the wall matches the scrolling effect of the
+      similar linedef upon floor and ceiling.
+    * Multiple linedef of the same CONTROL on the same control sector generate
+      synchronized ceiling, floor, and wall scrolling.
+      If there are multiple scrolling linedefs of the same tag number, then
+      their effects add.
+
+    * The orientation relative to the target wall controls horz. and
+      vert. scrolling.
+    * The length of the linedef multiplies the wall scrolling speed,
+      divided by 32, in the direction that the linedef points.
+    * When the wall itself has the scrolling linedef then it scrolls horz.
+      at speed = source_speed * length / 32.
+    * When the wall is distinct from the linedef then the wall is scrolled
+      horz. and vert.:
+      Horz. scrolling is proportional to the component of the wall linedef vector in line with this wall.
+      Vert. scrolling is proportional to the component of the wall linedef vector across the line of the wall.
+
+    Suggested synchronized scrolling usage.
+    1. Make the control sector and the target sectors and walls.
+    2. Carefully snap the scrolling target walls to grid points because
+       their orientation is critical.
+    3. Copy a wall of each orientation and paste it into the control sector,
+       keeping the same orientation.
+       * It helps if the walls are of an easy orientation, such as 3N+1E.
+       * Shorten the control wall to a length of 1 (because the length
+         multiplies the speed) without changing the orientation.
+         If this is not done perfectly, then vertical scrolling of the wall
+	 will creep in.
+       * Misalignment of a scrolling wall with a transparent texture will
+	 cause that texture to creep into the sky or sink into the ground.
+    4. For floor scrolling, take a wall of the control sector, make it a
+       floor scroll linedef and give it a tag, and give the same
+       tag to the target sectors.
+       * If the target sectors already have a tag, then separate control
+         linedef on the control sector will have to be created for them,
+         using the existing tag.
+    5. For ceiling scrolling do the same thing as for floor scrolling,
+       but use a new tag number.
+       * If a target sector already has a tag, such as for floor scrolling,
+         then create a separate ceiling scroll linedef
+         for them, using the existing tag.
+    6. For wall scrolling, give each wall orientation use the wall copied
+       to the control sector make it a wall scroll linedef.
+       * Give each wall scrolling linedef and a separate tag number.
+       * Give each scrolling wall the tag number of the control linedef
+         of the same orientation.
+    7. If vertical wall scrolling is wanted, then change the orientation
+       of the wall scroll linedef in the control sector.
+
+Scroller problems:
+  * Vertical scrolling a transparent texture will cause it to climb into
+    the sky, or sink into the floor.
+
+Conveyor
+  * Has a floor that moves objects in a specified direction.
+  * There can be multiple linedef affecting the same sector, combining by
+    vector addition.
+  * There can be one linedef contributing a fixed rate, and another connected
+    to a door sector providing changes.
+
+  These are all Boom effects.
+
+  Linedef types of interest:
+   252	Carry objects on tagged floor, fixed rate
+		Objects on the floor move, but the floor texture does not.
+   253	Scroll and carry objects on tagged floor, fixed rate
+		Objects on the floor move with the floor texture.
+   247	Carry objects on tagged floor, displacement
+		Objects on the floor move, but the floor texture does not.
+   248	Scroll and carry objects on tagged floor, displacement
+		Objects on the floor move with the floor texture.
+   216	Carry objects on tagged floor, variable rate
+		Objects on the floor move, but the floor texture does not.
+   217	Scroll and carry objects on tagged floor, variable rate
+		Objects on the floor move with the floor texture.
+
+
+  Examples:
+   Escalator:		30 units/sec	length = 30
+   Industrial conveyor: 32 units/sec	length = 32
+   Fast floor:		48 units/sec	length = 48
+   Fast change to conveyor speed:	length= 32, height_change=1
+   Slow change to conveyor speed:	length=1, height_change=32
+
+
+Conveyor problems:
+* Transfers between conveyors are speed dependent.
+  A design may only work at one speed.
+* Barrels moving from one conveyor to another will skid, depending on
+  their speed.
+  * They can skid a long distance.
+  * Guides or walls around a conveyor do not work as expected.
+    They look good, but monsters and barrels will climb them at the slightest
+    chance.
+  * If a guide wall is 24 units or less high, then the barrels on the conveyor
+    will climb them, making a great pile.
+  * A barrel that touches a guide wall that it cannot climb,
+    will stick, and get stuck.
+  * A barrel that starts exactly on the joint between conveyors will be stuck.
+  * A player can stop a barrel on a conveyor from moving, but cannot
+    budge one that is stuck.
+  * They work better if the are higher than the floor by a unit.
+  * Make a conveyor at least 64 units wide if you want monsters to be
+    carried by it.
+
+
+Start/Stop conveyor
+  1. Make a sector for the conveyor.
+     Assign it a new sector tag.
+     Assign it a floor texture, ceiling texture.
+     Set the floor and ceiling height.
+     Assign wall textures.
+     Add sides or depress the conveyor to keep things on it.
+  2. Divide the conveyor into the needed sectors, all with
+     the sector tag.
+  3. Off the map make a control box sector.
+     Cut it into two sectors.
+     Make one of the sectors a door, and give it a sector tag.
+  4. Set the other control box sector to have a ceiling and floor height
+     difference which equals the conveyor speed desired (nominally 32).
+  5. Close the door.  Set its floor and ceiling to the other sector floor.
+  6. Set one side of the door sector as the trigger linedef.
+	a. Choose a linedef that points in the direction of desired floor
+	   movement.  Move the end-points if necessary.
+           The door does not need to be not square, it could even be a
+	   triangle.
+	b. Make sure sidedef_1 is to the door.
+	   If not then go back to previous step.
+	c. Set the linedef length = 1.
+	d. Set the linedef type = 217
+	   (or 216 if the floor texture is to be still)
+  7. Make switches to control the door.
+     The ON switch raises the door, and leaves it up
+	(type 103, S1 open door, tag = door sector tag).
+     The OFF switch closes the door, and leaves it closed.
+	(type 50, S1 close door, tag = door sector tag).
+
+
+Multi-speed conveyor
+  Each push of one of the switches will change the speed to
+  the next higher (or lower) speed.
+  1. Make the conveyor
+  2. Make a control sector off the map.
+  3. Divide the control sector into a control sector that changes level,
+     and a static reference sector.
+  4. The control sector gets a tag number for the switches.
+  5. Create the scroller linedef type 216 or 217 on the side of the
+     control sector.
+     The length is a multiplier of the speed, and it direction sets the
+     direction of the conveyor.
+     Give it the tag number of the conveyor.
+  6. Divide the reference sector into steps, all adjacent to the control
+     sector.
+     Set the steps to the speed increments desired.
+  7. Create speed up and speed down switches.
+     Give them the tag number of the control sector.
+     Set the speed up switch to move the control sector to next-higher-floor.
+     Set the speed down switch to move the control sector to next-lower-floor.
+
+
+Crushers
+  Behavior:
+  * Crush any player, monster, or barrel that gets under them.
+  * Fast or slow movement.
+  * Heavy or light damage to player and monsters.
+  * Makes a noise that can be used for other effects.
+  * Limits of movement are determined by sector floor and ceiling heights.
+    Start in up position, and this is their highest movement.
+    Moves down to 8 units above floor.
+  * Can be started and stopped by buttons, walkover.
+    When they are stopped they stop in whatever position they were in.
+  * Boom generalized crusher control
+	Switch, Walkover, Push, and Shoot control modes.
+	Slow, normal, fast, and turbo speeds
+	Can be silent.
+    
+

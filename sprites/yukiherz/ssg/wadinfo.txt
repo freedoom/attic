@@ -1,0 +1,17 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+SHT2A0	-134	-106
+SHT2B0	-122	-75
+SHT2C0	-116	-104
+SHT2D0	-90	-131
+SHT2E0	-90	-115
+SHT2F0	-107	-104
+SHT2G0	-116	-118
+SHT2H0	-127	-89
+SHT2I0	-132	-90
+SHT2J0	-119	-81
+
+# End of extraction

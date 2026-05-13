@@ -1,0 +1,199 @@
+Patch File for DeHackEd v3.0
+Doom version = 19
+Patch format = 6
+
+# SPDX-License-Identifier: BSD-3-Clause
+
+# This is a magic comment recognized by Chocolate Doom, so that the
+# BEX [STRINGS] section below will be parsed:
+#
+#   *allow-extended-strings*
+
+[STRINGS]
+
+# End-of-episode texts, now with a consistent story. Feel free to edit them.
+E1TEXT = As the last brute falls to the ground,\n\
+         you only now notice how much your whole\n\
+         body is quivering. Just what the hell are\n\
+         those things? Aliens? Did AGM really make\n\
+         first contact and hide it from the world?\n\
+         Well, whatever it is they did, it bit them\n\
+         in the ass hard. There's not a single human\n\
+         left alive on this whole rock - and no\n\
+         spaceships to take you home, either.\n\
+         You step onto one of those stupid\n\
+         AGM teleport pads that give you nausea,\n\
+         and arrive at the facility where they first\n\
+         brought you. The place is already in ruins,\n\
+         ancient-looking alien marble peering from\n\
+         the cracks. Ruins built upon ruins.\n\
+         Whatever - the spaceport better still be\n\
+         there, you're in no mood for more detours!
+E2TEXT = Now that these monstrosities are dead\n\
+         and done with, this whole place is yours\n\
+         for the taking - including a shiny new\n\
+         spaceship, and access to AGM data logs!\n\
+         And who would've guessed - these bastards\n\
+         really did make first contact, 10 years ago,\n\
+         and decided to privatize it. They dug up\n\
+         the ruins and found the alien bugs, which\n\
+         they've since bred for genetics and combat\n\
+         research. They also stole their teleport\n\
+         pad technology. But then they found those\n\
+         bird-faced bruisers a month ago. These guys\n\
+         somehow remotely hijacked the portals to\n\
+         route to the Horizon star system, which is\n\
+         where the invasion force is coming from.\n\
+         Your instincts are clear - Earth can wait,\n\
+         someone's got to clean up this mess ASAP!
+E3TEXT = Before you reached Horizon, you thought\n\
+         maybe the aliens could be reasoned with.\n\
+         But then you saw humans being tortured for\n\
+         sport. Or half-eaten while still alive.\n\
+         And slaves, thousands of slaves worked\n\
+         to death building their bizarre temples.\n\
+         No, these guys are not the victims here.\n\
+         Hard to believe, but they're worse than AGM!\n\
+         Well, at least it's over now - the thing you\n\
+         just killed was some sort of psychic beacon\n\
+         homed in on AGM's colony. As the hijacked\n\
+         portals slowly lose target, you make your\n\
+         way back. Thinking of Earth the entire time.\n\
+         Your ship's non-precise warp travel might\n\
+         force a pit-stop at Saturn's Double Impact\n\
+         moon base, but it's no problem, right?\n\
+         Surely they'll welcome you with open arms!
+E4TEXT = Well, this is not good at all.\n\
+         If Double Impact was overrun, it means\n\
+         the aliens have found our solar system.\n\
+         You try to contact Earth, but to no avail.\n\
+         As you try to calm yourself by blaming\n\
+         the damaged equipment, something else\n\
+         catches your attention - an AGM digital\n\
+         wanted poster, featuring your own face!\n\
+         They're still after you, after all this?\n\
+         You smash the console in anger and leave.\n\
+         Between AGM and the aliens, you're just\n\
+         completely done with space at this point.\n\
+         Your DNA is all scrambled up, you might\n\
+         have alien genes inside you even,\n\
+         but you don't even care anymore - let's\n\
+         just go home, and look for a quiet life.\n\
+         A quiet life, and freedom.
+
+# After MAP06, before MAP07:
+C1TEXT = This is certainly not how you were hoping\n\
+         your return to Earth would look like. Ever\n\
+         since landing in this complex it's been a\n\
+         non-stop deja vu of aliens and zombified\n\
+         AGM soldiers - and not a single person to\n\
+         talk to, either... At least you've had a lot\n\
+         of time for some light reading on AGM logs.\n\
+         You're already wanted for knowing too much,\n\
+         so why not? There's concerningly little on\n\
+         what's happening to the world, and the last\n\
+         entry from two days ago just reads\n\
+         "The eye it raised the dead" over and over.\n\
+         Huh. You take a deep breath, curse AGM\n\
+         once again for starting this, and continue\n\
+         to the research sector. Saving the world?\n\
+         You never signed up for this. But so be it -\n\
+         Earth is your home, aliens better beware!
+# After MAP11, before MAP12:
+C2TEXT = Entering the conquered facility's comms\n\
+         center, you attempt to contact the world.\n\
+         "This is the resistance, do you copy?"\n\
+         - you're overjoyed to finally hear!\n\
+         You then get to hear all the latest news.\n\
+         All major AGM teleporters are hijacked,\n\
+         world's military is losing ground, AGM has\n\
+         holed up on the moon and isn't helping...\n\
+         "So where's the nearest major teleporter?"\n\
+         You're directed to a nearby city. They ask\n\
+         who exactly you are, but you cut the comms.\n\
+         As you arrive in the city you realize you\n\
+         forgot to ask for precise coords - but...\n\
+         That won't be necessary. An alien fortress\n\
+         now looms among the skyline, in the place\n\
+         where AGM's headquarters used to stand.\n\
+         All right, then - that's the destination!
+# After MAP20, before MAP21:
+C3TEXT = As you stand before the gate to the alien\n\
+         homeworld, you get startled by AGM copters\n\
+         approaching. Thankfully their logos are\n\
+         crossed out - must be the resistance.\n\
+         With your back now secured, you step into\n\
+         the portal, and end up... in a black void.\n\
+         You sense being watched. Then suddenly, you\n\
+         feel overwhelming power before you as a\n\
+         titanic skull-thing appears in the void.\n\
+         "Who are you to deny the sacred empire?"\n\
+         - you hear inside your mind. "The fate of\n\
+         your kind is sealed. Accept this and die..."\n\
+         The last word reverberates through your\n\
+         body as you wake up in a sweat, on the other\n\
+         side of the portal. Was that... a god? You\n\
+         might be completely out of your league here.\n\
+         But it is too late to turn back now...
+# After MAP30 (endgame text):
+C4TEXT = The moment before entering this chamber\n\
+         was perhaps the greatest fear you've ever\n\
+         felt in your life. After all, can a god even\n\
+         be killed? But this thing was no god.\n\
+         It could be killed. And it has been.\n\
+         And, uh, it's about to explode now. Wasting\n\
+         no time, you commandeer an alien spaceship\n\
+         and lift off, just in time to see the blast\n\
+         take out a sizable chunk of the planet!!\n\
+         Now that'll put a dent in their plans...\n\n\
+         Back on Earth, as the panicked aliens are\n\
+         being dealt with, you at long last doff\n\
+         your armor, and disappear into the crowds.\n\
+         No one will know who saved them.\n\
+         No one will ever find you again.\n\
+         You are free.
+# Before MAP31 (secret level #1):
+C5TEXT = Well, this was bound to happen sooner or\n\
+         later. The enticing-looking teleporter that\n\
+         promised to take you straight to the alien\n\
+         fortress turned out to be a primitive trap.\n\
+         Your fault for not double-checking the\n\
+         destination in all the excitement!\n\
+         Wherever you now are, you've been thrown\n\
+         into a cramped cage and left there, for now.\n\
+         The caged alien bugs all around you seem\n\
+         excited by this - forgetting about their\n\
+         own situation and making all sorts of\n\
+         taunting noises and gestures at you. It's\n\
+         clear they all know you. And they hate you.\n\
+         But never mind that - escape is the goal.\n\
+         You wait until the bugs are asleep, then\n\
+         start looking for a way to open the cage.\n\
+         And quietly. Any noise now means death!
+# Before MAP32 (secret level #2):
+C6TEXT = Two portals to choose from - one of them\n\
+         was the one you arrived through, but you\n\
+         forgot which was which!! And you chose...\n\
+         Poorly. This must be where they intended\n\
+         to throw you in later, because you found\n\
+         yourself right in the middle of an arena.\n\
+         So primitive. Suits these guys, heh.\n\
+         You look at the sky above you - well,\n\
+         doesn't look like Earth. But as you\n\
+         make up another plan to get out of here,\n\
+         you're interrupted by the first wave of\n\
+         gladiators arriving.\n\n\
+         Well then! If it's bloodsports they want,\n\
+         It's bloodsports they get! Just don't\n\
+         complain if there's too much blood, idiots!
+
+BGFLATE1 = AQF051
+BGFLATE2 = AQF054
+BGFLATE3 = FLAT5_2
+BGFLATE4 = AQF075
+BGFLAT06 = AQF016
+BGFLAT11 = AQF001
+BGFLAT20 = FLAT5_6
+BGFLAT30 = SLIME13
+BGFLAT15 = AQF004
+BGFLAT31 = AQF021

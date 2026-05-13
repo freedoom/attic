@@ -10,6 +10,11 @@ entry002.wad - Fraggle		- No	- .
 entry003.wad - Shadowrunner	- No	- .
 entry004.wad - Z0k		- No	- Slot E1M9 (was E1M5 in 0.12.1). Includes fixes from various authors.
 entry005.wad - Xindage		- No	- Slot E2M1. Includes fixes from various authors.
-entry006.wad - Malinku		- No	- LDTL.wad. Slot E2M2. Includes fixes by Catoptromancy.
+entry006.wad - Malinku		- No	- LDTL.wad. Slot E2M2. Includes fixes from Catoptromancy.
 entry007.wad - Wereknight	- No	- Slot E2M6.
 entry008.wad - Wereknight	- No	- Slot E2M7.
+entry009.wad - GodCells     - Yes   - Slot E1M8.
+entry010.wad - archfile     - No    - Slot E2M8.
+entry011.wad - Xindage      - No    - Slot E2M1, includes fixes from apophis.
+entry012.wad - Charli       - No    - Slot E1M1, "Filtration System"
+entry013.wad - Wereknight   - No    - Slot E1M5, "Armory"

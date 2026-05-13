@@ -1,0 +1,14 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+MISGA0	-121	-96
+MISGB0	-120	-98
+MISGC0	-118	-103
+MISGD0	-121	-93
+MISGE0	-120	-89
+MISGF0	-118	-86
+MISGG0	-118	-87
+MISGH0	-118	-86
+LAUNA0	30	26
+
+# End of extraction

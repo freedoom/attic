@@ -49,3 +49,6 @@ entry041.wad - Mechadon		- Yes	- mek-dom1.wad. Slot Map01.
 entry042.wad - Mechadon		- Yes	- Slot Map29. Requires BOOM.
 entry043.wad - Mechadon		- No	- Slot Map05. Requires ZDoom.
 entry044.wad - hawkwind		- Yes	- Slot Map17.
+entry045.wad - sgtmarkiv	- No	- Slot Map02. Original credits to fraggle
+entry046.wad - Dragonfly	- No	- MAP08-Dragonfly-AquaTech-Vanilla.wad. Slot Map08. Requires Aquatex animated flats
+enrty047.wad - anonymous    - No    - Slot Map20. The author doesn't want to be publicly credited for this map.

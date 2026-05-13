@@ -1,0 +1,9 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+# List of Pictures (with insertion point)
+[graphics]
+ARM2A0	20	23
+ARM2B0	20	23
+
+# End of extraction

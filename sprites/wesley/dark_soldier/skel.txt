@@ -1,0 +1,27 @@
+:Name: Spider Demon design
+:author: Wesley Johnson
+:date: 3/3/2012
+::END
+email: john <obfuscate> son 2412 <@> usgo <dot> net
+
+Revenant/Skeleton
+  Refurbish of existing black revenant.  Reduced in height to fit
+  engine size of 56 pixels.  Fixed proportions of revenant, and
+  made more consistent.  Keeps existing symmetrical frame arrangement.
+
+  Custom designed spider demon for FreeDoom, to match other existing
+  FreeDoom sprites.
+  This has a unique set of sprites, so cannot use old wadinfo.txt.
+
+Contains files:
+    skel.txt		this file
+    /sprites  		directory of all ppm files
+    wadinfo.txt 	deutex wadinfo, for only the spid sprites
+
+- Description:
+  Black Revenant with white claws, with missile launcher on chain around neck.
+  Has missiles on waist.
+  Claw attack.
+
+  
+

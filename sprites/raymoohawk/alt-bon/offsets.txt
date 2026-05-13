@@ -1,0 +1,10 @@
+# raymoohawk's edit of mechadon's bon1
+BON1A0	6	19
+BON1B0	6	19
+BON1C0	6	19
+BON1D0	6	19
+
+BON2A0	6	19
+BON2B0	6	19
+BON2C0	6	19
+BON2D0	6	19

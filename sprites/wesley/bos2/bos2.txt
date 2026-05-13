@@ -1,0 +1,85 @@
+Hell Knight wad, submitted by wesleyjohnson, 1/9/2010.
+
+Some of the existing Hell Knight graphics are reversed left-right.
+The knight will appear to walk backwards at times.
+This is hard to see many times but I have verified it in a test wad.
+The Baron does not have this problem and is using a different stepping
+scheme.
+
+Some of the sprite files for the right side of the first step are drawn
+from the left side instead.  These can be flipped, but it also works
+to rename them so they are displayed flipped.
+
+rename BOS2A6C4 BOS2C4A6
+rename BOS2A7C3 BOS2C3A7
+rename BOS2A8C2 BOS2C2A8
+rename BOS2B6D4 BOS2D4B6
+rename BOS2B7D3 BOS2D3B7
+rename BOS2B8D2 BOS2D2B8
+
+
+-- fixed wadinfo
+
+# DeuTex 4.4.0 by Olivier Montanuy
+# PWAD creation directives
+
+# List of Sprites
+[sprites]
+BOS2A1C1	19	69
+BOS2A2C8	20	68
+BOS2A3C7	26	66
+BOS2A4C6	22	64
+BOS2A5C5	19	65
+BOS2C4A6	21	64
+BOS2C3A7	25	66
+BOS2C2A8	24	69
+BOS2B1D1	23	72
+BOS2B2D8	21	70
+BOS2B3D7	19	69
+BOS2B4D6	24	67
+BOS2B5D5	24	66
+BOS2D4B6	18	66
+BOS2D3B7	21	69
+BOS2D2B8	21	71
+BOS2E1	30	65
+BOS2E2	12	67
+BOS2E3	30	62
+BOS2E4	27	63
+BOS2E5	28	69
+BOS2E6	22	73
+BOS2E7	20	73
+BOS2E8	30	74
+BOS2F1	34	65
+BOS2F2	29	65
+BOS2F3	29	64
+BOS2F4	30	64
+BOS2F5	28	62
+BOS2F6	29	63
+BOS2F7	21	64
+BOS2F8	26	65
+BOS2G1	14	59
+BOS2G2	29	59
+BOS2G3	26	58
+BOS2G4	25	56
+BOS2G5	30	55
+BOS2G6	24	55
+BOS2G7	22	57
+BOS2G8	28	56
+BOS2H1	23	69
+BOS2H2	26	68
+BOS2H3	25	67
+BOS2H4	26	64
+BOS2H5	22	62
+BOS2H6	15	62
+BOS2H7	17	66
+BOS2H8	18	68
+BOS2I0	34	79
+BOS2J0	34	79
+BOS2K0	34	79
+BOS2L0	34	79
+BOS2M0	34	79
+BOS2N0	34	79
+BOS2O0	34	79
+
+# End of extraction
+

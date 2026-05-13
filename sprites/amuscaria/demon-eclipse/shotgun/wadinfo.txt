@@ -1,0 +1,13 @@
+# DeuTex 5.2.2
+# PWAD creation directives
+
+SHTGA0	-115	-91
+SHTGB0	-130	-66
+SHTGC0	-160	-48
+SHTGD0	-196	-49
+SHTGE0	-206	-53
+SHTGF0	-115	-83
+SHTGG0	-115	-76
+SHOTA0	29	15
+
+# End of extraction
